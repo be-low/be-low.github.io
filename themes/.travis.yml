@@ -1,0 +1,7 @@
+language: node_js
+dist: xenial
+cache: npm
+branches:
+  only: master
+before_script: npm install --save-dev hexo-cli
+script: hexo deploy
