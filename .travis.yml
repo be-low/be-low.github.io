@@ -5,4 +5,13 @@ cache: npm
 branches:
   only: master
 before_script: npm install hexo-cli
-script: hexo deploy
+script: 
+- hexo generate
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $github_token
+  keep-history: true
+  on:
+    branch: master
+  local-dir: ./public
