@@ -1,0 +1,2 @@
+hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=78        0 0
+ /etc/fstab
