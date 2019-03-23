@@ -59,3 +59,10 @@ sudo systemctl start libvirtd
 
 > 接下来应该正常了
 
+重启物理机后又出现了一个问题 `network 'default' is not active` 可以手动用 virsh 启动这个（虚拟网络？）
+
+`sudo virsh net-start default`
+
+也可以让她自动启动
+
+`sudo virsh net-autostart default`
