@@ -15,7 +15,7 @@
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><%- post.excerpt || __('no_excerpt') %></div>
+    <div class="excerpt typo"><%- post.excerpt || truncate(post.content, 40) %></div>
     <!-- Post Tags -->
     <div class="tags">
       <% if (post.tags && post.tags.length) { %>

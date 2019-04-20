@@ -32,7 +32,7 @@ widgets:
 
 # widget behavior
 archive_type: 'monthly'
-show_count: false
+show_count: true
 
 # favicon
 favicon: /favicon.png
