@@ -5,7 +5,7 @@ tags:
 ---
 # 首先我看了下 arch 的 [kvm wiki](https://wiki.archlinux.org/index.php/KVM)，执行了以下步骤
 
-## 1. 开启嵌套虚拟化
+## Optional 1. 开启嵌套虚拟化
 
 ### 检测该特性是否开启
 
@@ -18,7 +18,7 @@ modprobe -r kvm_intel
 modprobe kvm_intel
 ```
 
-## 2. 开启 huge pages （这是翻译成【巨/大】页？感觉怪怪的）
+## Optional 2. 开启 huge pages （这是翻译成【巨/大】页？感觉怪怪的）
 
 - 使 kvm 组拥有 /dev/hugepages 的权限，添加下面这行到 /etc/fstab
 
@@ -31,25 +31,23 @@ umount /dev/hugepages
 mount /dev/hugepages
 ```
 
-## 3. 上面好像作了一番无用工，其实只用执行这一步就好了
+## Real 1. 安装一些包
 
-- install required pkg
 ```shell
 sudo pacman -Syy
 sudo pacman -S qemu libvirt virt-manager
 ```
-- enable libvirt service
+
+## Real 2. 启动服务
+
 ```shell
 sudo systemctl enable libvirtd
 sudo systemctl start libvirtd
 ```
 
-> now 应该可以用 virt-manager 创建虚拟机了
-> 以后用 english 算了 中英文切换好麻烦，而且半角符号全角符号混搭也不美
+> 现在应该可以用 virt-manager 创建虚拟机了
 
-## 4. 然后在我创建虚拟机的时候碰到了一些问题，找到了 [libvirt](https://wiki.archlinux.org/index.php/libvirt)
-
-她会在创建网络连接时报错，需要安装一些包
+## Real 3. 此时本以为万事大吉了, 但是还会在创建网络连接时报错，可以看这个 wiki [libvirt](https://wiki.archlinux.org/index.php/libvirt)
 
 `sudo pacman - S bridge-utils openbsd-netcat ebtables dnsmasq`
 
@@ -57,12 +55,10 @@ sudo systemctl start libvirtd
 
 `sudo systemctl restart libvirtd`
 
-> 接下来应该正常了
-
-重启物理机后又出现了一个问题 `network 'default' is not active` 可以手动用 virsh 启动这个（虚拟网络？）
+## Real 4. 重启后又出现了一个问题 `network 'default' is not active`
 
 `sudo virsh net-start default`
 
-也可以让她自动启动
+也可以自动启动
 
 `sudo virsh net-autostart default`
