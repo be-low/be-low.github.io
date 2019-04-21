@@ -1,8 +1,9 @@
 ---
 title: install-kvm
 date: 2019-03-23 15:43:22
-tags:
+tags: linux,kvm
 ---
+
 # 首先我看了下 arch 的 [kvm wiki](https://wiki.archlinux.org/index.php/KVM)，执行了以下步骤
 
 ## Optional 1. 开启嵌套虚拟化

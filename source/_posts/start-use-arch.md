@@ -1,8 +1,9 @@
 ---
 title: start-use-arch
 date: 2019-03-22 20:51:03
-tags:
+tags: linux,arch
 ---
+
 前天 marjaro deepin 崩了 
 
 我靠我怎么打不出来一个符号？(现在可以了)
@@ -38,10 +39,9 @@ git clone https://aur.tuna.tsinghua.edu.cn/yay.git
 cd yay
 makepkg -si
 ```
+
 `yay -S optimus-manager` 我觉得不用清华的 mirrors 肯定太慢了
 
 所以使用 mirror 的命令是这个 `yay --save --aururl "https://aur.tuna.tsinghua.edu.cn" optimus-manager` --save 参数可以把镜像的配置保存下来，以后就会默认使用镜像了。
 
-这里如果既用镜像 && 使用了 http 全局代理的话，会出现一个问题，把代理关了，~~或者使用 https 的代理~~ 我没试过
-
-> 感觉通篇像写日记~~流水帐~~。
+这里如果既用镜像 && 使用了全局代理的话，会出现一个奇怪的问题

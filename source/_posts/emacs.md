@@ -1,13 +1,8 @@
-
 ---
 title: emacs
 date: 2019-02-12 21:57:07
-tags:
+tags: editor,emacs
 ---
-
-> Wow I first write paper? in English. (May be it's worthing to memery).  In fact, just because I haven't Chinese input method now.
-
-> This is my 3 or 4 time to gettting started use emacs. But in previous times, i gived up at last, this time I think I'll take to heart.
 
 ## First build emacs@latest from source
 
@@ -54,10 +49,13 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ### Get help
 
 * C-h t open Tutorial
+
 * C-h c describe shutcut
-### File
+  
+  ### File
 
 * C-x C-f find file
+
 * C-x C-s save file
 
 ### Buffer
@@ -75,11 +73,19 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 > p = previous n = next f = forward b = backword
 
 * C-v next page
+
 * M-v previous page
+
 * C-l recenter-top-bottom
 
 * C-s search
 
 * M-m = SPC (in spacemacs)
-> maybe I'm murdering.
-> ending.
+  
+  > maybe I'm murdering.
+  > 
+  > ending.
+
+> Wow I first write paper? in English. (May be it's worthing to memery).  In fact, just because I haven't Chinese input method now.
+
+> This is my 3 or 4 time to gettting started use emacs. But in previous times, i gived up at last, this time I think I'll take to heart.

@@ -4,16 +4,7 @@
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date"><%= date(post.date) %></div>
-      <div class="categories">
-        <% if (post.categories && post.categories.length) { %>
-          <%- partial('post/categories', {categories: post.categories}) %>
-        <% } else { %>
-          <%- __('uncategorized') %>
-        <% } %>
-      </div>
-    </div>
+    <div class="date"><%= date(post.date) %></div>
     <!-- Post Excerpt -->
     <div class="excerpt typo"><%- post.excerpt || truncate(post.content, 40) %></div>
     <!-- Post Tags -->
