@@ -21,15 +21,15 @@ optimus manager 这东西完美适配 archlinux，驱动独显只需要几行命
 
 首先 她是个 aur 的包 那么不能直接
 
-```
-pacman -S xxx
+```shell
+sudo pacman -S xxx
 ```
 
 需要从 github 上拿下来 然后编译成 pacman 的包 再使用 pacman 安装
 
 但是我这么懒的人，怎么能做这么麻烦的事情。当然是用 yay 了 有了 yay 就可以
 
-```
+```shell
 yay -S xxx
 ```
 
@@ -51,7 +51,7 @@ cd yay
 makepkg -si
 ```
 
-```
+```shell
 yay -S optimus-manager
 ```
 
@@ -59,7 +59,7 @@ yay -S optimus-manager
 
 所以使用 mirror 的命令是这个
 
-```
+```shell
 yay --save --aururl "https://aur.tuna.tsinghua.edu.cn" optimus-manager
 ```
 

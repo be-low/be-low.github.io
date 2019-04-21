@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-这个人很懒，介绍还懒得写。
+这个人很懒，还懒得写。
