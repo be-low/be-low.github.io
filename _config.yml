@@ -6,7 +6,7 @@ url: "billow.fun"
 github_username:  bil2ow
 
 markdown: kramdown
-theme: jekyll-theme-hacker
+theme: minima
 plugins:
   - jekyll-feed
 
