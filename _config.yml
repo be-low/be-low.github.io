@@ -3,7 +3,7 @@ email: i@billow.fun
 description: >-
 baseurl: ""
 url: "billow.fun"
-github_username:  bil2ow
+github_username:  whimeteor
 
 markdown: kramdown
 theme: minima
