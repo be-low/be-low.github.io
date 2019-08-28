@@ -4,7 +4,7 @@ description: >-
 baseurl: ""
 url: "billow.fun"
 github_username:  iovw
-
+google_analytics: true
 markdown: kramdown
 theme: minima
 plugins:
