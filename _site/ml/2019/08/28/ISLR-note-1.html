@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>ISLR-note-1 | billow’s space</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="ISLR-note-1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="对回归或者分类问题使用灵活度高的方法的优缺点：" />
+<meta property="og:description" content="对回归或者分类问题使用灵活度高的方法的优缺点：" />
+<link rel="canonical" href="billow.fun/ml/2019/08/28/ISLR-note-1.html" />
+<meta property="og:url" content="billow.fun/ml/2019/08/28/ISLR-note-1.html" />
+<meta property="og:site_name" content="billow’s space" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-28T09:08:31+08:00" />
+<script type="application/ld+json">
+{"description":"对回归或者分类问题使用灵活度高的方法的优缺点：","@type":"BlogPosting","dateModified":"2019-08-28T09:08:31+08:00","datePublished":"2019-08-28T09:08:31+08:00","headline":"ISLR-note-1","url":"billow.fun/ml/2019/08/28/ISLR-note-1.html","mainEntityOfPage":{"@type":"WebPage","@id":"billow.fun/ml/2019/08/28/ISLR-note-1.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            "HTML-CSS": { fonts: ["TeX"] }
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js' async></script><link type="application/atom+xml" rel="alternate" href="billow.fun/feed.xml" title="billow's space" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-146580442-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146580442-1');
+</script></head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">billow&#39;s space</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ISLR-note-1</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-08-28T09:08:31+08:00" itemprop="datePublished">Aug 28, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="对回归或者分类问题使用灵活度高的方法的优缺点">对回归或者分类问题使用灵活度高的方法的优缺点：</h2>
+
+<p>灵活度高的方法可解释性低，但是对数据的拟合更好，但过多的参数也会带来过拟合的问题，所以对于比较简单的模型可能效果还不如灵活度低的方法。</p>
+
+<h2 id="可解释性">可解释性：</h2>
+
+<p>对于线性模型，它非常可解释，因为很容易理解 $Y$ 与 $X_1，X_2,…,X_p$ 之间的关系。</p>
+
+<script type="math/tex; mode=display">Y = \sum_{i=1}^p \theta_i X_i</script>
+
+<p>但是对于灵活度高的方法，就很难理解每个独立的 $X_i$ 与 $Y$ 之间的关联。</p>
+
+<h2 id="推理和预测">推理和预测：</h2>
+
+<p>对于推理，我们需要可解释性，所以一般来说，用灵活度高的方法会更好。</p>
+
+<p>对于预测，虽然不关注于可解释性，但是灵活度高的方法会有过拟合的问题，所以需要根据模型复杂度来判断。</p>
+
+<h2 id="parametric-methods-and-non-parametric-methods">Parametric Methods and Non-parametric Methods:</h2>
+
+<p>对于预测 $Y = f(x_1,x_2,…,x_p)$</p>
+
+<p>Parametric Methods 就是对 f 假设一个模型，比如线性模型 $Y = \sum_{i=1}^p \theta_i X_i$，找到最优的系数 $\theta_1,\theta_2,…,\theta_p$ 来使 f 预测的结果准确。这种方法降低了问题的复杂性，把预测未知函数 f 的问题转换成了求一系列系数的问题。但是假设的这个模型可能与真实情况相去甚远，可能他一个二次，三次函数，但是假设的是线性模型，所以预测的 f 的结果就会很差。</p>
+
+<p>Non-parametric Methods 没有预设的函数。所以避免了 Parametric Methods 的缺点，但是复杂性更高。他会尽可能拟合训练的数据，准确度更高，但也更容易过拟合。</p>
+
+  </div><a class="u-url" href="/ml/2019/08/28/ISLR-note-1.html" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">billow&#39;s space</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">billow&#39;s space</li><li><a class="u-email" href="mailto:billow.fun@gmail.com">billow.fun@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/iovw"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">iovw</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
