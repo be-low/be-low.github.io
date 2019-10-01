@@ -72,9 +72,11 @@ public Integer(int value) {
 ```
 
 从上面这几段代码来看, Integer 确实是有一个缓存的机制,所以：
+
 $$
 Integer.valueOf(x) == Integer.valueOf(x) =\\\begin{cases}true, &\text{if } -128 \leq x \leq high\\false,&\text{if } x \leq -128 \text{ or } x \geq high\\\notag\end{cases}
 $$
+
 high 在大多时候都等于 127。
 
 验证了我的推测，开心
