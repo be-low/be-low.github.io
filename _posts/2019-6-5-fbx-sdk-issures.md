@@ -1,6 +1,6 @@
 ---
 layout: post
-title: fbx sdk 的问题
+title: 使用 FBX SDK 碰到的问题
 date: 2019-06-05 13:50:31 +0800
 categories: []
 ---
