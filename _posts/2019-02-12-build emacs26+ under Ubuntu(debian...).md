@@ -20,7 +20,7 @@ sudo apt-get install -y libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-d
 
 ## Download source and unpack it
 
-可以到[这里](https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases)查看最新版本号,
+可以到[这里](https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases)查看最新版本号
 
 ```shell
 wget https://mirrors.tuna.tsinghua.edu.cn/gnu/emacs/emacs-26.3.tar.xz -O emacs.tar.xz
