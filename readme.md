@@ -10,7 +10,6 @@
 ```shell
 sudo pacman -Syu
 sudo pacman -S ruby ruby-bundler
-
 ```
 
 ## Run
@@ -18,5 +17,5 @@ sudo pacman -S ruby ruby-bundler
 ```shell
 bundle install --path vendor/bundle
 bundle exec jekyll serve
-
 ```
+
