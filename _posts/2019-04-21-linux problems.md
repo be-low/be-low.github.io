@@ -5,8 +5,6 @@ date: 2019-04-21 13:50:31 +0800
 categories: [linux, arch]
 ---
 
-自从把 `nixos` 卸了，用了一段时间的 `windows10` 后,我又装了 `archlinux` ![arch](/assets/images/screen-fetch.png)
-
 记录一下遇到的几个问题。
 
 ## Grub
