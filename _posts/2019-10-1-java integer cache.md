@@ -7,7 +7,7 @@ categories: [Java]
 
 做 cs61b 的 lab3 时碰到的，需要解释 
 
-```
+```java
 public static boolean isSameNumber(Integer a, Integer b) {
     return a == b;
 }
@@ -15,7 +15,7 @@ public static boolean isSameNumber(Integer a, Integer b) {
 
 用这个判断 0-499 的两个一样的 int 时，为什么到 128 就是 false 了，我觉得我这解释还可以。
 
-```
+```java
 private static class IntegerCache {
     static final int low = -128;
     static final int high;

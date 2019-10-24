@@ -6,7 +6,9 @@ url: "billow.fun"
 github_username:  iovw
 google_analytics: true
 markdown: kramdown
-theme: minima
+paginate: 5
+paginate_path: "/page:num/"
+# theme: minima
 plugins:
   - jekyll-feed
 
