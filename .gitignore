@@ -1,6 +1,5 @@
 .sass-cache
 .jekyll-metadata
-.bundle/
 vendor/
 *~
 _site/
