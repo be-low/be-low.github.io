@@ -1,6 +1,6 @@
 ---
 layout: post
-title: build emacs26+ under Ubuntu(debian)
+title: Build Emacs
 date: 2019-02-12 21:57:07 +0800
 categories: [editor, emacs]
 ---
