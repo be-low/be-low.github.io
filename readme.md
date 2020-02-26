@@ -1,15 +1,24 @@
-# My jekyll blog
+# My blog using Jekyll
 
 ## Requirements:
 
 - ruby
 - bundler
 
-### for ArchLinux:
+### Install Dependences:
+
+- For Arch Linux:
 
 ```shell
 sudo pacman -Syu
 sudo pacman -S ruby ruby-bundler
+```
+
+- For Windows (using Chocolate Package Manager)
+
+```shell
+choco install -y ruby
+gem install jekyll bundler
 ```
 
 ## Run
