@@ -210,6 +210,49 @@ if __name__ == "__main__":
 
 效果显著！
 
+不对，我的多线程程序没有执行完成就退出了，才发现输出目录没有东西。
+
+传的参数不对，但已经是我尝试过N种错误的方法后了，然后就是 timeit 好像测不出来执行时间，
+
+```
+beg = time()
+executor.map(convert_file, in_files)
+duration = time() - beg
+```
+
+用这种朴实的方法也不行，明显感觉到在输出最后一句后还执行了一段时间。
+
+用 idea 的  profile 工具可以测得处理 701 个文件的时间是 1067 ms，算是还可以吧。
+
+然后的话，需要把所有的不完整的图片合并完整。先用 GIMP 看看怎么摆？（虽然 ps 更专业，但是越来越难下载了）
+
+唉，这拼图好难啊，我还以为顺序有用的。让我看下答案。
+
+然后我发现，GARbro的每个文件都是一整张图，而我这里只有一部分？
+
+然后把文件读进来，查找 png 的文件头：
+
+```python
+In [21]: re.findall(rb'\x89PNG',cnt)
+Out[21]:
+[b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG',
+ b'\x89PNG']
+```
+
+所以之前我只把第一部分取出来了，其实一共有8个切片。真是糟糕的设计！
+
+想换个语言玩了。不如 C# 或者 kotlin ?
+
+算了咱还是快点完成吧，还有很多事情呢。
+
+
+
 Links:
 
 - [ZTJ的GalGame解包记录](https://blog.ztjal.info/acg/acg-data/galgame-unpack-record-2011-4th)
