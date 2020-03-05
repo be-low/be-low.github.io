@@ -114,6 +114,102 @@ qlie/pack: improved .exe key retrieval
 
 GARbro 的提取选项里只要不选保持原样都可以正常打开。
 
+3/5 更新：
+
+GARbro 提取的原始格式的 png 文件不能直接打开，用2/16进制编辑器打开后，头部有 
+
+```
+DPNG         �             X   0t         �PNG
+
+   
+IHDR 
+```
+
+打开正常的 png 文件，头部是
+
+```
+�PNG
+
+   
+IHDR 
+```
+
+```
+89 50 4e 47 0d 0a 1a 0a 20 20 20 0d 49 48 44 52
+```
+
+把 `�PNG`  之前的删除就是正常的 png 文件了。
+
+写一个脚本来自动处理:
+
+```python
+#  Copyright (c) 2020 iovw.
+#  All rights reserved.
+
+import argparse
+from pathlib import Path
+
+
+def convert_file(inp_path, out_path):
+    with open(inp_path, mode='rb') as inp:
+        inp.seek(16 * 3)
+        with open(out_path, 'wb') as out:
+            out.write(inp.read())
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="""Convert DPNG format file to normal png file""")
+    parser.add_argument("input", type=str,
+                        help="Full path to the input directory.")
+    parser.add_argument("output", type=str, default=str(Path.cwd()),
+                        help="Full path to the output directory. "
+                             "It would be a script parent directory if not specified.")
+
+    args = parser.parse_args()
+    in_dir = Path(args.input)
+    out_dir = Path(args.output)
+
+    for file in in_dir.glob('*.png'):
+        print(f'convert {file.name}')
+        convert_file(file, out_dir.joinpath(file.name))
+```
+
+但是太慢了，我有多个线程可用，但是只能用一个线程来处理，真是浪费呢。
+
+用 timeit 测试了一下，处理100个 png 平均需要 0.19 s, 一秒钟 500 ？好像也不算慢了。
+
+但是ev 里有700+的文件，跑了 34.8682508 s，难道我选的 100 张都是最小的那种？
+
+改成随机选好了。然而，随机选择的100个文件也是 0.19+ s，200个是大约0.5s
+
+```
+2020-03-05 16:08:33,649 - process 100 file time: 0.1718941
+2020-03-05 16:08:33,983 - process 200 file time: 0.34112460000000006
+2020-03-05 16:08:34,470 - process 300 file time: 0.48815339999999996
+2020-03-05 16:08:35,509 - process 400 file time: 1.0346279999999999
+2020-03-05 16:08:36,926 - process 500 file time: 1.4165533999999997
+2020-03-05 16:08:38,756 - process 600 file time: 1.8242625000000006
+2020-03-05 16:08:40,569 - process 700 file time: 1.8237256000000004
+2020-03-05 16:08:42,781 - process 701 files completed, duration: 2.2004572000000007
+```
+
+改了下之后像是正常了？
+
+8 workers 的线程池
+
+```
+2020-03-05 16:07:28,215 - process 100 file time: 0.004936099999999999
+2020-03-05 16:07:28,215 - process 200 file time: 0.00488559999999999
+2020-03-05 16:07:28,231 - process 300 file time: 0.0058112999999999915
+2020-03-05 16:07:28,246 - process 400 file time: 0.006451200000000018
+2020-03-05 16:07:28,246 - process 500 file time: 0.007458199999999998
+2020-03-05 16:07:28,262 - process 600 file time: 0.008884200000000009
+2020-03-05 16:07:28,278 - process 700 file time: 0.00949259999999999
+2020-03-05 16:07:28,293 - process 701 files completed, duration: 0.009794200000000003
+```
+
+效果显著！
+
 Links:
 
 - [ZTJ的GalGame解包记录](https://blog.ztjal.info/acg/acg-data/galgame-unpack-record-2011-4th)
