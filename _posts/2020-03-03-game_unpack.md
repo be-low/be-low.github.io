@@ -5,7 +5,7 @@ date: 2020-03-03 11:52:24 +0800
 categories: [Galgame, Reverse]
 ---
 
-### 一篇可能没什么帮助的美少女万华镜解包记录
+### 一篇可能没什么帮助的美少女万华镜4解包记录
 
 一开始，只知道搜索 [Galgame, unpack, 美少女万华镜, 解包] ->
 
@@ -251,26 +251,131 @@ Out[21]:
 
 算了咱还是快点完成吧，还有很多事情呢。
 
+看到 PNG 的 Specification 文档真是让人望而生畏啊，太长了。
+
+真的，无心看这个 png 规范了，除非我需要写一个 png viewer。
+
+感觉翻 GARbro 的代码反而更简单。但是用VS连成功编译代码都做不到。
+
+如果说不能编译的原因话，就是依赖的奇怪问题。比如 一个文件 `using System.Linq` 但VS显示 `未能找到引用的组件"System.Linq"` 然后 `using` 这句也是红的。太难了。CS 领域就是这样，用的操作系统肯定是有bug，IDE有bug，PL也有bug，就看什么时候遇到了。
+
+但这常常让我心情很糟。好像找到原因了，它这里引用的dll都是这样的
+
+![vs](D:\Source\blog\assets\image\vs.png)
+
+正常的是这些
+
+![](D:\Source\blog\assets\image\vs1.png)
+
+根据自觉，咱在 {project}.csproj 里找到了重要信息
+
+```xml
+ <PropertyGroup>
+    <PreBuildEvent>perl "$(SolutionDir)inc-revision.pl" "$(ProjectPath)" $(ConfigurationName)
+exit 0</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+```
+
+是原作者写的一个 perl 脚本，但是在我这里不能运行，它是操作 git 的。所以把这段代码注释，项目就正常了。每个被以来的项目都需要这样操作。（其实不懂为啥不用 cmd 脚本，更简单不是吗？）
+
+而且作者根本没在 ReadMe 里讲怎么 build 这个项目？
+
+接下来，错误改变了，**找不到清单签名证书**。应该好解决。
+
+成功编译运行，奇怪的知识增加了。
+
+找到的关键部分的代码，期间困难重重，我得克服不改那些红色波浪线的冲动，去一个函数一个函数的往下跳，
+
+而且看到这部分代码，很感动，因为一开始就找到了这里，只是不太明白，经过这么个过程，大致明白了程序的一部分逻辑后，更明白了？接下来就需要把这部分 CSharp 代码复刻到 Python 了。
+
+```csharp
+public override ImageMetaData ReadMetaData(IBinaryStream file)
+{
+    file.Position = 8;
+    var tileCount = file.ReadInt32();
+    if (tileCount <= 0)
+        return null;
+
+    var metaData = new DpngMetaData
+    {
+        BPP = 32,
+        TileCount = tileCount,
+        Width = file.ReadUInt32(),
+        Height = file.ReadUInt32()
+    };
+    return metaData;
+}
+```
+
+```csharp
+public override ImageData Read(IBinaryStream stream, ImageMetaData metaData)
+{
+    var meta = (DpngMetaData) metaData;
+    var bitmap = new WriteableBitmap((int) metaData.Width, (int) metaData.Height,
+        ImageData.DefaultDpiX, ImageData.DefaultDpiY,
+        PixelFormats.Pbgra32, null);
+    long next_tile = 0x14;
+    for (var i = 0; i < meta.TileCount; ++i)
+    {
+        stream.Position = next_tile;
+        var x = stream.ReadInt32();
+        var y = stream.ReadInt32();
+        var width = stream.ReadInt32();
+        var height = stream.ReadInt32();
+        var size = stream.ReadUInt32();
+        stream.Seek(8, SeekOrigin.Current);
+        next_tile = stream.Position + size;
+        if (0 == size)
+            continue;
+        using (var streamRegion = new StreamRegion(stream.AsStream, stream.Position, size, true))
+        {
+            var decoder = new PngBitmapDecoder(streamRegion,
+                BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+            var frame = new FormatConvertedBitmap(decoder.Frames[0], PixelFormats.Pbgra32, null, 0);
+            var stride = frame.PixelWidth * 4;
+            var pixels = new byte[stride * frame.PixelHeight];
+            frame.CopyPixels(pixels, stride, 0);
+            var rect = new Int32Rect(0, 0, frame.PixelWidth, frame.PixelHeight);
+            bitmap.WritePixels(rect, pixels, stride, x, y);
+        }
+    }
+    
+    bitmap.Freeze();
+    return new ImageData(bitmap, metaData);
+}
+```
+
+我想要不要直接去改 GARbro 了，它支持的格式很多，我只需要加一个多线程或者异步的导出功能就好了？虽然原作者好像不活跃了，但是程序本身不是很复杂，没有什么困难的算法？
+
+一开始是用的 pillow, 一般的操作还是没问题，而且还有 `Image.frombytes` 这样的接口，但是和我想的不一样，我这种包含元数据的`png`原始字节流好像并不支持？
+
+原来可以把 `bytes` 转成 `BytesIO` 可以当成文件打开？(file like object)
+
+看来 pillow 还是不太行，不能操作 ROI (Region of Interest), 而这可是 opencv 的基础操作？不过我优点还是小吧，手动操作也不是不行，就是觉得会很慢。
+
+看来不太行，换用 cv 了。太糟糕了。开始怀念 matlab 的图像操作了。
+
+cv 由于只是一个 c++ 库的 python 绑定，错误信息根本看不到，只能看到  `SystemError: <built-in function imwrite> returned NULL without setting an error`, 很难 debug。
+
 
 
 Links:
 
 - [ZTJ的GalGame解包记录](https://blog.ztjal.info/acg/acg-data/galgame-unpack-record-2011-4th)
-
 - [asmodean 的 exfp3](http://asmodean.reverse.net/pages/exfp3.html)
-
 - [Resource Hacker](http://www.angusj.com/resourcehacker)
-
 - [lennylxx 的 as-util.h](https://raw.githubusercontent.com/lennylxx/pksgnpa/master/as-util.h)
-
 - [Inori 的 as-util.h](https://github.com/Inori/FuckGalEngine/blob/master/Minori/Minori/fuckpaz/as-util.h)
-
 - [hz86 的 filepack](https://github.com/hz86/filepack/blob/master/filepack31.c)
-
 - [PC ero game .pack archive](https://zenhax.com/viewtopic.php?t=8115)
-
 - [arc_unpacker](https://github.com/vn-tools/arc_unpacker)
-
-- [GARbr](https://github.com/morkt/GARbro)
-
+- [GARbro](https://github.com/morkt/GARbro)
 - [Qlie visual story engine disassembly](https://sudonull.com/post/9841-Qlie-visual-story-engine-disassembly)
+- [Portable Network Graphics (PNG) Specification (Second Edition)](https://www.w3.org/TR/PNG)
