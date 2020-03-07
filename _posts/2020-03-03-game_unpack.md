@@ -364,7 +364,42 @@ public override ImageData Read(IBinaryStream stream, ImageMetaData metaData)
 
 cv 由于只是一个 c++ 库的 python 绑定，错误信息根本看不到，只能看到  `SystemError: <built-in function imwrite> returned NULL without setting an error`, 很难 debug。
 
+好了，我已经开始改 GARbro 了，先是用 reshaper 把所有代码的难看的红色波浪线干掉（才发现可以直接干掉一整个项目/解决方案，不过很慢就是了，期间我甚至下完了一个不小的游戏？）
 
+找到了我要改的代码，但是感觉无从下手，它有这样一个函数 `ExtractFilesFromArchive` 但是这些 extract 的操作都是在那个进度条控件的 `doWork` 里，然而 C# 的 `ThreadPool` 好像只有发送任务的接口，任务完成后不知道怎么获得反馈，这样和进度条不能协同工作啊！
+
+难难难！头秃。
+
+这种 WPF 的应用，事件绑定好像是一般都在 XAML 文件里？刚又忘了，在 .cs 里找半天，不过更好的方法应该是用 IDE 的查找方法调用功能吧？
+
+很想放弃了。试了下 async 就发现它的缺点，这个项目代码太多， async 又必须更改函数的接口，改一个地方就得改所有地方。
+
+真的放弃了。
+
+最后再在 Python 那条路上挣扎一下。（主要是Python连阻塞式的单线程的处理现在都不能实现）
+
+好了，我的 Python 代码成功了，经过大概十多次错误之后。
+
+过程大概就是用 numpy 生成一个随机数据的矩阵，用 imread 竟然可以成功保存？
+
+然后控制变量，比如大小，数据类型，数据应该是无关的，最后发现唯一不同只是我传了一个 `libpath.Path` 到 path 里，而对照组是 `str` ？至此，Python 这条路应该是没有问题了。
+
+顺序执行用了 58.854 s， 而并发执行的版本不太正常，700 张图只输出了不到100张？日志里倒是说都完成了.
+
+莫名其妙的好了？14.150 s 11.617 s (把设的8个worker，删了，发现默认是  `min(32, (os.cpu_count() or 1) + 4)` 感觉直接默认值会更好？
+
+又解决一个小问题，有俩很恐怖的图(`c_笑う夕摩_01.png`)，不是 RGBA 的png，矩阵的形状不一样了？
+
+而且还不能广播(broadcast)？所以咱统一转成 RGBA。
+
+这个章节就暂时这样吧，现在做了
+
+- 一个用一系列图片生成gif动画的脚本
+- 一个把 dpng 这种专有憨憨格式转成通用的png的脚本。
+
+然而从 .pack 中提取文件的功能还是用的 GARbro。（而且它也支持直接转换 dpng 到 png）
+
+没什么成果，踩了很多坑。
 
 Links:
 
@@ -379,3 +414,5 @@ Links:
 - [GARbro](https://github.com/morkt/GARbro)
 - [Qlie visual story engine disassembly](https://sudonull.com/post/9841-Qlie-visual-story-engine-disassembly)
 - [Portable Network Graphics (PNG) Specification (Second Edition)](https://www.w3.org/TR/PNG)
+- [Portable Network Graphics ](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
+- [Dotnet Task Parallel Library ](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl?redirectedfrom=MSDN)
