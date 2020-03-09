@@ -1,0 +1,11 @@
+// -- selector prefixed to the wrapper div for collision prevention
+
+pre.highlight {
+  code {
+    * {
+      white-space: nowrap; // this sets all children inside to nowrap
+    }
+    white-space: pre; // forces <code> to respect <pre> formatting
+  }
+  overflow-x: auto; // this sets the scrolling in x
+}
