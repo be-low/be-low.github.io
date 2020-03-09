@@ -3,8 +3,8 @@ email: billow.fun@gmail.com
 description: 它们能做的……唯有努力地绽放光芒。让那光芒照耀着其他灯塔，也照耀着我
 baseurl: ""
 url: "billow.fun"
-github_username:  iovw
-google_analytics: true
+github_username: iovw
+google_analytics: false
 markdown: kramdown
 permalink: /:year/:month/:day/:title:output_ext
 # theme: minima
