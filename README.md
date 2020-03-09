@@ -1,49 +1,31 @@
-# billow-theme
+# My blog using Jekyll
 
-Another Jekyll theme. Modificated by [minima](https://github.com/jekyll/minima)
+## Requirements:
 
-![screenshot](./screenshot/Screenshot_2020-03-09%20Welcome%20to%20Jekyll%20.png)
+- ruby
+- bundler
 
-**Work In Process **
+### Install Dependences:
 
-## Installation
+- For Arch Linux:
 
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "billow"
+```shell
+sudo pacman -Syu
+sudo pacman -S ruby ruby-bundler
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+- For Windows (using Chocolate Package Manager)
 
-```yaml
-theme: billow
-plugins:
-  - jekyll-seo-tag
+```shell
+choco install -y ruby
+gem install jekyll bundler
 ```
 
-And then execute:
+## Run
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install billow
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/iovw/billow-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `billow.gemspec` accordingly.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+```shell
+bundle install --path vendor/bundle
+bundle exec jekyll serve
+```
+>>>>>>> 0f78d15795cb511eb7ae52199085d43c761e77d4
 
