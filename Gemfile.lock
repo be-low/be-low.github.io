@@ -1,5 +1,5 @@
 GEM
-  remote: https://mirrors.tuna.tsinghua.edu.cn/rubygems/
+  remote: https://rubygems.org/
   specs:
     activesupport (6.0.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -9,6 +9,8 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    billow (0.1.0)
+      jekyll (~> 3.8)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -245,9 +247,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  billow
   github-pages
   jekyll-feed (~> 0.12)
   jekyll-paginate
+  jekyll-seo-tag
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
