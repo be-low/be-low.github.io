@@ -8,13 +8,19 @@ google_analytics: false
 markdown: kramdown
 permalink: /:year/:month/:day/:title:output_ext
 # theme: minima
+theme: billow
+
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - ReadMe.*
+  - readme.*
+  - README.md
   - Gemfile
   - Gemfile.lock
   - node_modules
