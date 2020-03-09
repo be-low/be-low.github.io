@@ -119,33 +119,22 @@ GARbro 的提取选项里只要不选保持原样都可以正常打开。
 GARbro 提取的原始格式的 png 文件不能直接打开，用2/16进制编辑器打开后，头部有 
 
 ```
-DPNG         �             X   0t         �PNG
-
-   
-IHDR 
+DPNG         �             X   0t         
+......
+\x89PNG IHDR 
 ```
 
 打开正常的 png 文件，头部是
 
 ```
-�PNG
-
-   
-IHDR 
+\x89 P N G \x0d \x0a \x1a \x0a
 ```
 
-```
-89 50 4e 47 0d 0a 1a 0a 20 20 20 0d 49 48 44 52
-```
-
-把 `�PNG`  之前的删除就是正常的 png 文件了。
+把 `\x89PNG`  之前的删除就是正常的 png 文件了。
 
 写一个脚本来自动处理:
 
 ```python
-#  Copyright (c) 2020 iovw.
-#  All rights reserved.
-
 import argparse
 from pathlib import Path
 
@@ -261,11 +250,11 @@ Out[21]:
 
 但这常常让我心情很糟。好像找到原因了，它这里引用的dll都是这样的
 
-![vs](D:\Source\blog\assets\image\vs.png)
+![vs1](./assets/image/vs.png)
 
 正常的是这些
 
-![](D:\Source\blog\assets\image\vs1.png)
+![vs2](./assets/image/vs1.png)
 
 根据自觉，咱在 {project}.csproj 里找到了重要信息
 
