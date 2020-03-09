@@ -27,5 +27,3 @@ gem install jekyll bundler
 bundle install --path vendor/bundle
 bundle exec jekyll serve
 ```
->>>>>>> 0f78d15795cb511eb7ae52199085d43c761e77d4
-
