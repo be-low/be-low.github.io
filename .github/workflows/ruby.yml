@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Build and test with Rake
+      - name: Build with jekyll
         run: |
           gem install bundler
           bundle config path vendor/bundle
