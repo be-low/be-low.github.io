@@ -1,8 +1,8 @@
 title: billow's space
-email: billow.fun@gmail.com
+email: "billow.fun@gmail.com"
 description: 它们能做的……唯有努力地绽放光芒。让那光芒照耀着其他灯塔，也照耀着我
 baseurl: ""
-url: "billow.fun"
+url: "https://billow.fun"
 github_username: iovw
 google_analytics: false
 markdown: kramdown
@@ -13,6 +13,7 @@ permalink: /:year/:month/:day/:title:output_ext
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-compose
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -18,11 +18,11 @@
           </li>
 
           {%- if site.email -%}
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li>Email: echo {{ site.email | encode64 }} | base64 -d</li>
           {%- endif -%}
 
           {%- if site.github_username -%}
-          <li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
+          <li><a href="https://github.com/{{ site.github_username | cgi_escape | escape }}">
               <i class="github icon"></i>
               <span username">{{ site.github_username| escape }}</span>
             </a></li>
