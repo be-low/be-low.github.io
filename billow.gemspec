@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "billow"
-  spec.version       = "0.1.1"
+  spec.version       = "0.0.1"
   spec.authors       = ["billow"]
   spec.email         = ["billow.fun@gmail.com"]
 
   spec.summary       = "Another Jekyll theme"
-  spec.homepage      = "https://github.com/iovw/billow-theme"
+  spec.homepage      = "https://github.com/iovw/iovw.github.io"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }

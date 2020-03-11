@@ -20,4 +20,4 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 gem "billow"
-# gem 'jekyll-seo-tag'
+gem "rouge", "~> 3.13"
