@@ -1,0 +1,71 @@
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #282a36;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #6272a4;
+}
+.highlight .cp {
+  color: #ff79c6;
+}
+.highlight .gd {
+  color: #8b080b;
+}
+.highlight .go {
+  color: #44475a;
+}
+.highlight .ge {
+  text-decoration: underline;
+}
+.highlight .gh {
+  text-decoration: underline;
+}
+.highlight .gi {
+  text-decoration: underline;
+}
+.highlight .gu {
+  text-decoration: underline;
+}
+.highlight .k, .highlight .kc, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ff79c6;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #8be9fd;
+  font-style: italic;
+}
+.highlight .kt {
+  color: #8be9fd;
+}
+.highlight .na {
+  color: #50fa7b;
+}
+.highlight .nc {
+  color: #50fa7b;
+}
+.highlight .nf, .highlight .fm {
+  color: #50fa7b;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
+  color: #8be9fd;
+  font-style: italic;
+}
+.highlight .nl {
+  color: #8be9fd;
+  font-style: italic;
+}
+.highlight .nb, .highlight .bp {
+  color: #8be9fd;
+  font-style: italic;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss {
+  color: #f1fa8c;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #bd93f9;
+}
+.highlight .o, .highlight .ow {
+  color: #ff79c6;
+}
