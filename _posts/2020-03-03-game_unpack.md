@@ -250,11 +250,11 @@ Out[21]:
 
 但这常常让我心情很糟。好像找到原因了，它这里引用的dll都是这样的
 
-![vs1](./assets/image/vs.png)
+![vs1](https://raw.githubusercontent.com/iovw/iovw.github.io/image/vs.webp)
 
 正常的是这些
 
-![vs2](./assets/image/vs1.png)
+![vs2](https://raw.githubusercontent.com/iovw/iovw.github.io/image/vs1.webp)
 
 根据自觉，咱在 {project}.csproj 里找到了重要信息
 
