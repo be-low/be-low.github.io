@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ template "partials/head.html" . }}
+  <body>
+    {{ template "partials/header.html" . }}
+    <main>
+      <div id="article">
+         <div class="article-title">{{ .Title }}</div>
+         <p class="meta">
+           <small>&nbsp;<i class="fa fa-calendar-o"></i> {{ .Date.Format  "2006-01-02" }}</small>
+         </p> <hr/>
+         <div class="post">
+           {{ .Content }}
+         </div>
+      </div>
+      <ul class="pager">
+           {{with .Prev}} &nbsp;<li class="previous">
+             <a href="{{.Permalink}}"> {{.Title}}</a></li>
+           {{end}}
+           {{with .Next}} &nbsp;<li class="next">
+             <a href="{{.Permalink}}"> {{.Title}}</a></li>
+           {{end}}
+      </ul>
+    </main>
+    {{ template "partials/footer.html" . }}
+  </body>
+</html>
