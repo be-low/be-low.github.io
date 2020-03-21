@@ -1,5 +1,10 @@
 # My blog using Jekyll
 
+## 为什么我不再用 Jekyll
+
+不想玩 jekyll 了, 前几天用 `--disable-march-tune-native` 解决的问题又出现了,大概本来
+就是随机出现?而且 ruby 对 windows 不友好. 离开...
+
 ## Requirements:
 
 - ruby
