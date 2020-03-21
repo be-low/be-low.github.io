@@ -3,3 +3,4 @@ public/
 *.jpg
 *.jpeg
 **/upload/
+**/node_modules/

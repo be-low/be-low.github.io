@@ -15,18 +15,18 @@ draft: true
 首先 transformer 是在 [这里](https://github.com/PicGo/PicGo-Core/blob/deec252167e59eff4971cbe089bf25670f0a6979/src/core/Lifecycle.ts#L47-L58) 被调用的
 
 ```javascript
-  private async doTransform (ctx: PicGo): Promise<PicGo> {
-    this.ctx.emit('uploadProgress', 30)
-    this.ctx.log.info('Transforming...')
-    let type = ctx.getConfig('picBed.transformer') || 'path'
-    let transformer = this.ctx.helper.transformer.get(type)
-    if (!transformer) {
-      transformer = this.ctx.helper.transformer.get('path')
-      ctx.log.warn(`Can't find transformer - ${type}, swtich to default transformer - path`)
-    }
-    await transformer.handle(ctx)
-    return ctx
+private async doTransform (ctx: PicGo): Promise<PicGo> {
+  this.ctx.emit('uploadProgress', 30)
+  this.ctx.log.info('Transforming...')
+  let type = ctx.getConfig('picBed.transformer') || 'path'
+  let transformer = this.ctx.helper.transformer.get(type)
+  if (!transformer) {
+    transformer = this.ctx.helper.transformer.get('path')
+    ctx.log.warn(`Can't find transformer - ${type}, swtich to default transformer - path`)
   }
+  await transformer.handle(ctx)
+  return ctx
+}
 ```
 
 而且一次只能选择一个 transformer, 我还以为可以有多个 transformer?, 不过真要那样就得关心起执行的顺序了. 不过别的生命周期 hook 却可以有多个?
