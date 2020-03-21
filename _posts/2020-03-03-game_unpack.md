@@ -250,11 +250,11 @@ Out[21]:
 
 但这常常让我心情很糟。好像找到原因了，它这里引用的dll都是这样的
 
-![vs1](https://raw.githubusercontent.com/iovw/iovw.github.io/image/vs.webp)
+![invalid dll reference](https://raw.githubusercontent.com/iovw/image-storage/master/e36f367b600d3b8a568667f60bbeef3356b0fa7d459aa7fd12ab15024b084b72.webp)
 
 正常的是这些
 
-![vs2](https://raw.githubusercontent.com/iovw/iovw.github.io/image/vs1.webp)
+![true dll reference](https://raw.githubusercontent.com/iovw/image-storage/master/a864f2cafec671ff0d8e3db98cbf62ebfaaf8bb1bc49eb62b8e107ccb1a6aa7b.webp)
 
 根据自觉，咱在 {project}.csproj 里找到了重要信息
 
