@@ -1,0 +1,46 @@
+name: Build and Publish to gh-page
+
+on:
+  push:
+    branches: [ hugo ]
+  pull_request:
+    branches: [ hugo ]
+
+jobs:
+  build:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Hugo
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y hugo
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: |
+          yarn install
+          yarn b
+
+      - name: Publish to gh-page
+        uses: crazy-max/ghaction-github-pages@v1.3.0
+        with:
+          target_branch: master
+          allow_empty_commit: false
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

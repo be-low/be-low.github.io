@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const cp = require('child_process');
+const os = require('os');
 const BrowserSync = require('browser-sync');
 
 const browserSync = BrowserSync.create();
@@ -13,7 +14,11 @@ function runHugo(options) {
 }
 
 function runWebpack(options) {
-  return cp.spawn('yarn', ['webpack'].concat(webpackOptions, options || []),
+  const yarn = os.platform() === 'win32' ?
+    'yarn.cmd' :
+    'yarn';
+
+  return cp.spawn(yarn, ['webpack'].concat(webpackOptions, options || []),
     {
       stdio: 'inherit',
     });
