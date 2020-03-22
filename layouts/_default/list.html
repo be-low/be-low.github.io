@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{ template "partials/head.html" . }}
-  <body>
-    {{ template "partials/header.html" . }}
-    <main id="article">
-      <h1>{{.Title}}</h1>
-      <ul class="posts">
-          {{ range .Data.Pages }}
-          <li><span>
+{{ template "partials/head.html" . }}
+<body>
+{{ template "partials/header.html" . }}
+<main id="article">
+    <h1>{{.Title}}</h1>
+    <ul class="posts">
+        {{ range .Data.Pages }}
+        <li><span>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
           </span></li>
-          {{ end }}
-        </ul>
-      </ul>
-    </main>
-    {{ template "partials/footer.html" . }}
-  </body>
+        {{ end }}
+    </ul>
+</main>
+{{ template "partials/footer.html" . }}
+</body>
 </html>

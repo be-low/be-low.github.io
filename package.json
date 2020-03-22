@@ -6,7 +6,7 @@
   "repository": "git@github.com:iovw/iovw.github.io.git",
   "author": "iovw <billow.fun@gmail.com>",
   "license": "MIT",
-  "scripts":{
+  "scripts": {
     "c": "rm -rf public",
     "w": "gulp watch",
     "b": "gulp build"

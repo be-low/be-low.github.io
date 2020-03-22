@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{ template "partials/head.html" }}
+{{ template "partials/head.html" }}
 <body>
-	{{ if eq .Site.Params.enableLandingPage true}}
-  	<div class="circular">
-  		<img src="{{ .Site.Params.ProfilePicture }}" alt="" />
-  		<div id="landing-about">
-  				<a href="{{ .Site.Params.landingPageRedirectUrl }}">
+{{ if eq .Site.Params.enableLandingPage true}}
+<div class="circular">
+    <img alt="" src="{{ .Site.Params.ProfilePicture }}"/>
+    <div id="landing-about">
+        <a href="{{ .Site.Params.landingPageRedirectUrl }}">
             Find out more about
             <b>{{ .Site.Params.AuthorName }}</b>
-          </a>
-  		</div>
-  	</div>
-	{{ else }}
-		{{ template "partials/header.html" . }}
-    <main id="article">
-      <h1>{{.Title}}</h1>
-      <ul class="posts">
-          {{ range .Data.Pages }}
-          <li><span>
+        </a>
+    </div>
+</div>
+{{ else }}
+{{ template "partials/header.html" . }}
+<main id="article">
+    <h1>{{.Title}}</h1>
+    <ul class="posts">
+        {{ range .Data.Pages }}
+        <li><span>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <time class="pull-right post-list">
               {{ .Date.Format "Mon, Jan 2, 2006" }}
             </time>
-          </span></span></li>
-          {{ end }}
-      </ul>
-    </main>
-  	{{ template "partials/footer.html" }}
-	{{ end }}
+          </span></li>
+        {{ end }}
+    </ul>
+</main>
+{{ template "partials/footer.html" }}
+{{ end }}
 </body>
 </html>

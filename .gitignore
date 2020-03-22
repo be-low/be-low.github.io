@@ -2,8 +2,11 @@ public/
 *.png
 *.jpg
 *.jpeg
+*.iml
 **/upload/
 **/node_modules/
+**/.idea/
+
 
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
