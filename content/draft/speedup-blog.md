@@ -145,5 +145,23 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 
 所以版本差了这么多？罪恶的 ubuntu
 
+好了，用 snap 版本的 hugo 修复了这个问题。
 
+然后 import katex 就让 main.bundle 增加到了 800+ kb, 感觉不太行，应该让 katex 在服务端渲染。
+
+hugo 还是太菜了，拓展性太差，所以我要回到 hexo 了。
+
+### 为什么我不再用 hugo?
+
+优点：
+
+- 速度快
+- 二进制包，没有额外依赖
+
+缺点：
+
+- 优点也成为缺点，由于是二进制包，所以拓展性差(我能想到的只有加载 dll?, 但是官方也没有说明)
+- 自定义pipeline, 我想要能够自定义每一个流程，每个过程都可替换，比如 markdown -> html 的过程, code block ->  `<span>...</span>` 的过程 
+
+所以我想回到 hexo 了，忘了之前不用 hexo 的原因。
 
