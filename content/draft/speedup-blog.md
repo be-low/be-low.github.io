@@ -120,3 +120,30 @@ TypeError: require(...) is not a function
 这样全部都已 cached 的页面, 第一个 document 也需要 7.+s 才能加载出来
 
 应该是特例, 平均都是 300+ ms, 还行吧. nova 那边是 100ms, 嗯..差距
+
+很诡异，本地和 GitHub Runner 用一样的命令 build 出来的竟然不一样？我还专门 upload-artifact 再下下来看了的。
+
+主要是 `<code>...</code>` 里面， 本地的版本生成了一些 span 和 class, 用于语法高亮， 但是远端就是一块字符串。
+
+好像发现了点什么：
+
+local
+
+```
+➜  Source (master) ✔ hugo version  
+Hugo Static Site Generator v0.68.0/extended linux/amd64 BuildDate: unknown
+```
+
+remove
+
+```
+Preparing to unpack .../hugo_0.40.1-1_amd64.deb ...
+Unpacking hugo (0.40.1-1) ...
+Setting up hugo (0.40.1-1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+```
+
+所以版本差了这么多？罪恶的 ubuntu
+
+
+
