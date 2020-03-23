@@ -1,30 +1,43 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
-import Layout from '../components/layout'
 import SEO from '../components/seo'
 import styled from 'styled-components'
 
-const NavLink = styled(Link)`
-  
+const Main = styled('main')`
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
 `
-
-const VerticalWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex: 1 0 200px;
+const Title = styled('h1')`
+  grid-column: 2/6;
+  text-align: center;
+  grid-column-gap: 1fr;
+  height: 100px;
+  color: #00AAC2;
+  margin: 0;
+`
+const Wrapper = styled.div`
+  display: grid;
+  grid-column: 3/5;
+`
+const NavLink = styled(Link)`
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  margin: 10px 0;
 `
 
 const IndexPage = () => (
-  <Layout>
+  <Main>
     <SEO title="Home"/>
-    <VerticalWrapper>
-      <NavLink to={'/posts'}>Posts</NavLink>
-      <NavLink to={'/about-me'}>About Me</NavLink>
-      <NavLink to={'/contact'}>Contact</NavLink>
-    </VerticalWrapper>
-  </Layout>
+    <Title>Welcome to Billow's World</Title>
+    <Wrapper>
+      <NavLink to={'/start'}>Start</NavLink>
+      <NavLink to={'/posts'}>Load</NavLink>
+      <NavLink to={'/contact'}>Option</NavLink>
+      <NavLink to={'/about-me'}>Help</NavLink>
+    </Wrapper>
+  </Main>
 )
 
 export default IndexPage

@@ -1,6 +1,6 @@
 ---
 date: 2020-03-13 00:00:00
-title: C.G.magic
+title: Graphic's Magic
 ---
 
 # Computer Graphics' s Magic

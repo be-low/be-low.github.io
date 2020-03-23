@@ -1,6 +1,6 @@
 ---
 date: 2019-10-07 09:34:07
-title: sicp note
+title: SICP Note
 ---
 
 ## 应用序与正则序

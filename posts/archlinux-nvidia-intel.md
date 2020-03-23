@@ -1,6 +1,6 @@
 ---
 date: 2019-03-22 20:51:03
-title: ArchLinux's nvidia intel graphics cards
+title: ArchLinux's Nvidia Intel Graphics Cards Setup
 tags: ['linux']
 ---
 

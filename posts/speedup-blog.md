@@ -1,5 +1,5 @@
 ---
-title: "Speedup Blog"
+title: Speedup Blog
 date: 2020-03-21T15:41:32+08:00
 draft: true
 ---

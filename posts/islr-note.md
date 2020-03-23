@@ -1,6 +1,6 @@
 ---
 date: 2019-08-28 09:08:31
-title: islr note
+title: ISLR Note
 ---
 
 ## 对回归或者分类问题使用灵活度高的方法的优缺点：

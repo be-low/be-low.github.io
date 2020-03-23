@@ -1,6 +1,6 @@
 ---
 date: 2019-04-21 13:50:31
-title: linux-problems
+title: Linux Problems
 ---
 
 记录一下遇到的几个问题。

@@ -1,6 +1,6 @@
 ---
 date: 2019-10-05 09:34:07
-title: percolation
+title: Percolation
 ---
 
 `isOpen` whether or not that space has been excavated(挖掘，变成空洞) 
