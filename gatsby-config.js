@@ -9,6 +9,15 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,8 +25,6 @@ module.exports = {
         path: `${__dirname}/posts`
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -29,7 +36,6 @@ module.exports = {
         display: `standalone`,
         icon: `assets/icons/icon-512.webp` // This path is relative to the root of the site.
       }
-    },
-    `gatsby-plugin-offline`
+    }
   ]
 }

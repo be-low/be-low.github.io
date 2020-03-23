@@ -20,11 +20,8 @@ export default function Post ({ data }) {
 export const pageQuery = graphql`
     query($id: String!) {
         markdownRemark(id: { eq: $id }) {
+            ...Post
             html
-            frontmatter {
-                date(formatString: "MMMM DD, YYYY")
-                title
-            }
         }
     }
 `

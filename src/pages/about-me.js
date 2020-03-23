@@ -7,6 +7,7 @@ export default function AboutMePage () {
     <Layout>
       <SEO title="AboutMe"/>
       <h1>About Me</h1>
+      <p>It should write down something.</p>
     </Layout>
   )
 }
