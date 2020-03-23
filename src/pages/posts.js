@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import PostLink from '../components/post-link'
 
@@ -16,7 +16,7 @@ export default function PostsPage () {
           }
       }
   `)
-  const { _totalCount, nodes } = data.allMarkdownRemark
+  const { nodes } = data.allMarkdownRemark
 
   return (
     <Layout>

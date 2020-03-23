@@ -12,7 +12,8 @@ const NavLink = styled(Link)`
 const VerticalWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  grid-auto-rows: minmax(1fr,auto);
+  justify-content: space-around;
+  flex: 1 0 200px;
 `
 
 const IndexPage = () => (
