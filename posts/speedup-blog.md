@@ -1,5 +1,5 @@
 ---
-title: Speedup Blog
+title: Speed Up Blog
 date: 2020-03-21T15:41:32+08:00
 draft: true
 ---
@@ -166,4 +166,18 @@ hugo 还是太菜了，拓展性太差，所以我要回到 hexo 了。
 所以我想回到 hexo 了，忘了之前不用 hexo 的原因。
 
 Hexo migrate rss 好有问题啊， rss 里面的内容不完整，它就让让我以为是好的？
+
+尝试了两天 gatsby, 初见时挺惊艳的. 又是 React Jsx 式的组件, 又是 GraphQL 获取数据, 还自带一个 GraphIQL 的前端来查看数据 (因为只看到了美好的部分吧)
+
+但是随着对它的了解更深, 我觉得它不太符合我的要求.
+
+### 为什么我不再用 Gatsby ?
+
+- 重型武器, `yarn install` 得跑好久
+- 载入(初次)太慢, 生产模式 build 出来的 JS bundle 挺大的, 而之所以有这么多 JS, 是因为生成的页面不是纯静态的 HTML, 而只是把所有数据打包成了 Json, 然后估计还有 React router 之类的库来处理路由.(太粗暴了)
+- 在禁用 JS 的环境下,完全不能正常运行.
+
+然后优点也是有的,比如它使用 GraphQL, 就不只是为了查询个 Markdown 而设计的, 据说可以用于不同的数据源, 只要支持.
+
+待续... 
 
