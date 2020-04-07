@@ -29,13 +29,14 @@ const NavLink = styled(Link)`
 
 const IndexPage = () => (
   <Main>
-    <SEO title="Home"/>
+    <SEO title="Home" />
     <Title>Welcome to Billow's World</Title>
     <Wrapper>
       <NavLink to={'/start'}>Start</NavLink>
       <NavLink to={'/posts'}>Load</NavLink>
       <NavLink to={'/contact'}>Option</NavLink>
       <NavLink to={'/about-me'}>Help</NavLink>
+      <NavLink to={'/friends'}>Support</NavLink>
     </Wrapper>
   </Main>
 )

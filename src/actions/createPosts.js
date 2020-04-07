@@ -3,7 +3,7 @@ const path = require(`path`)
 exports.createPosts = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const postComponent = path.resolve(`src/components/post.js`)
+  const postComponent = path.resolve(`src/components/post.jsx`)
 
   const queryAllPost = `{
   allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
