@@ -4,7 +4,7 @@ title: ArchLinux's Nvidia Intel Graphics Cards Setup
 tags: ['linux']
 ---
 
-## 附加：
+## 附加
 
 现在似乎不用 optimus-manager 也可以，如果直接安装 nvidia 和 gnome 的话，猜测是 gnome 对 xorg.conf 进行了配置？而且在 Wayland 下也能正常工作，但是需要安装整个 gnome group。
 
@@ -16,7 +16,7 @@ tags: ['linux']
 
 - 把 gdm 换成一个打了补丁的 `gdm-prime` Aur 包， 才得以正常使用 gnome (真是麻烦啊…
 
-## 起因：
+## 起因
 
  marjaro deepin 崩了
 
@@ -24,7 +24,7 @@ tags: ['linux']
 
 arch 折腾好多次了 但是每次到最后总是 nvidia 驱动不了，但是我又不想放弃双屏 …
 
-## Procedure:
+## Procedure
 
 首先需要先有 `nvidia` 的驱动
 

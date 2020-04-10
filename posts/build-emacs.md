@@ -10,7 +10,7 @@ sudo apt-get update
 sudo apt-get install -y build-essential libncurses-dev
 ```
 
-## if need graphics UI.
+## if need graphics UI
 
 ```shell
 sudo apt-get install -y libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libgnutls28-dev

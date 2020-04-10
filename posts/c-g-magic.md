@@ -3,7 +3,7 @@ date: 2020-03-13 00:00:00
 title: Graphic's Magic
 ---
 
-# Computer Graphics' s Magic
+## Computer Graphics' s Magic
 
  本来还有计算机网络和机器视觉的一些事情要做，但是我很抗拒，游戏也不好玩了（或者没什么心情玩），所以来学习计算机图形学的魔法？（其实是填一个坑）
 
@@ -11,7 +11,7 @@ title: Graphic's Magic
 
 一个小问题，生成的 tga 格式的图片，kde的默认图片查看器根本不支持，Clion 里也打不开，不过可以用 gimp 打开（虽然怪怪的）。
 
-## 第一步，画直线
+### 第一步，画直线
 
 突然想起来我并不说没有学过这啊，当时还是用的 windows gdi， 在窗口绘制。现在已经忘得差不多了，而且我也没怎么听讲（上课无聊到想睡觉），老师也不可爱，反正总是有理由喏。那么就当没学过好了。
 
@@ -32,6 +32,7 @@ target_link_libraries(tinyrenderer
         ${PNG_LIBRARIES}
 )
 ```
+
 然后, `pkg_check_modules` 和 `pkg_search_module` 有一点不同，首先它们都可以同时查找多个库，比如 
 
 ```cmake
@@ -51,7 +52,7 @@ wsl，这库真劝退。基本上就把 png 的底层都暴露出来了，用它
 
 测试图:
 
-![svpng test picture](https://raw.githubusercontent.com/iovw/image-storage/master/svpng-out.webp)
+![svpng test picture](https://raw.githubusercontent.com/iovw/image-storage/master/images/svpng-out.webp)
 
 终于到了画直线的时候了(悲。
 
@@ -63,10 +64,9 @@ wsl，这库真劝退。基本上就把 png 的底层都暴露出来了，用它
 
 > 这篇记录应该可以帮我记住这个状态吧，因为要递归调用了，先把状态保存起来，才不会 `StackOverflow`.
 
-
 很烦，所以我想放弃写 C++ 的矩阵库了，而且我的库感觉很难用。我这 Matrix 终于可以用了，可以用于画线了，虽然写得挺糟糕的。
 
-![first line](https://raw.githubusercontent.com/iovw/image-storage/master/first-line.webp)
+![first line](https://raw.githubusercontent.com/iovw/image-storage/master/images/first-line.webp)
 
 突然想到我为什么不用 SMID？因为我记得在 DirectX 里 float4 向量，4X4 矩阵什么的都是用的 SMID，然后就找到了乌得勒支大学的高级图形学 Lecture，感觉是个很不错的路标。也许我会用 `std::experimental::simd` 来做这个。反正是魔法，用实验性特性更好？看了半天才发现我要手动从 github 上下载下来，然后用 `Install.sh` 安装.
 
@@ -144,7 +144,7 @@ obj 文件里的顶点坐标是 [-1,1] 的浮点数,而我需要转换成 [0,w) 
 
 [关联代码](https://github.com/iovw/tiny-renderer/tree/5f816afb50acbb77cf0c7249d830b70119c3d689) 
 
-![african-head-512x512](https://raw.githubusercontent.com/iovw/image-storage/master/african-head-512x512.webp)
+![african-head-512x512](https://raw.githubusercontent.com/iovw/image-storage/master/images/african-head-512x512.webp)
 
 他的上下翻转操作是在写文件前才做的, 我一番操作还是没有成功,只好看下他的代码了.
 
@@ -156,7 +156,7 @@ obj 文件里的顶点坐标是 [-1,1] 的浮点数,而我需要转换成 [0,w) 
 
  正确的人头:
 
-![true head](https://raw.githubusercontent.com/iovw/image-storage/master/african-head-1024-true.webp)
+![true head](https://raw.githubusercontent.com/iovw/image-storage/master/images/african-head-1024-true.webp)
 
 待续...
 
