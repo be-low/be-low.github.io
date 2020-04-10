@@ -105,9 +105,9 @@ TypeError: require(...) is not a function
 
 现在我转到 hugo 了, 果然速度很快-指 build 整个静态站点. 样式都删掉了, 图片专门建了一个 [GitHub 的 repo](https://github.com/iovw/image-storage) 来存, 用 picgo 和 typora 自动上传. 用 google 的 Speed Insight  分析有 100 分 (此处应有\滑稽
 
-![image-20200321170258934](https://raw.githubusercontent.com/iovw/image-storage/master/image-20200321170258934.webp)
+![image-20200321170258934](https://raw.githubusercontent.com/iovw/image-storage/master/images/image-20200321170258934.webp)
 
-![image-20200321170352992](https://raw.githubusercontent.com/iovw/image-storage/master/image-20200321170352992.webp)
+![image-20200321170352992](https://raw.githubusercontent.com/iovw/image-storage/master/images/image-20200321170352992.webp)
 
 我写的 picgo 插件完善了一些, 现在可以选择用别的格式. 不过我好像误会 webp 了, 如果设定了无损转换那大小确实比不过 jpg, 但是保留 80% 的图像质量的有损压缩的话,比 jpg 更小.
 
@@ -115,7 +115,7 @@ TypeError: require(...) is not a function
 
 还是感觉太慢,
 
-![image-20200321171424590](https://raw.githubusercontent.com/iovw/image-storage/master/image-20200321171424590.webp)
+![image-20200321171424590](https://raw.githubusercontent.com/iovw/image-storage/master/images/image-20200321171424590.webp)
 
 这样全部都已 cached 的页面, 第一个 document 也需要 7.+s 才能加载出来
 

@@ -33,7 +33,7 @@ target_link_libraries(tinyrenderer
 )
 ```
 
-然后, `pkg_check_modules` 和 `pkg_search_module` 有一点不同，首先它们都可以同时查找多个库，比如 
+然后, `pkg_check_modules` 和 `pkg_search_module` 有一点不同，首先它们都可以同时查找多个库，比如
 
 ```cmake
 pkg_check_modules (FOO glib-2.0>=2.10 gtk+-2.0)
@@ -60,7 +60,7 @@ wsl，这库真劝退。基本上就把 png 的底层都暴露出来了，用它
 
 我 C++ 好菜啊，用 C++ 时就很多问题。比如用 `template<typename T>` 时，我应该怎么调用 T 的方法，应该把它强制转换成某个类型吗？我怎么对 T 进行限制，比如让它只能为某个类的子类(或者实现了某接口？，好吧，好像 C++ 没有接口)。
 
-可怕的是我还不知道该搜索什么关键词？也许这就是菜吧。只记得一个 `C++模板元编程` 的概念，如果组合 C++ 和模板的话。找到一个叫 `type_trait` 的东西，应该可以做这些检测，但是没有 `extend` 或者 `implement`. 
+可怕的是我还不知道该搜索什么关键词？也许这就是菜吧。只记得一个 `C++模板元编程` 的概念，如果组合 C++ 和模板的话。找到一个叫 `type_trait` 的东西，应该可以做这些检测，但是没有 `extend` 或者 `implement`.
 
 > 这篇记录应该可以帮我记住这个状态吧，因为要递归调用了，先把状态保存起来，才不会 `StackOverflow`.
 
@@ -77,29 +77,29 @@ wsl，这库真劝退。基本上就把 png 的底层都暴露出来了，用它
 ```cpp
 void line(int32_t x0, int32_t y0, int32_t x1, int32_t y1, Mat &m, const RGB &c) {
   int32_t xx = x1 - x0,
-	  yy = y1 - y0;
+    yy = y1 - y0;
   if (std::abs(xx) >= std::abs(yy)) {
-	if (x0 > x1) {
-	  std::swap(x0, x1);
-	}
-	float dy = static_cast<float>(yy) / static_cast<float>(std::abs(xx)),
-		y = y0;
-	for (float x = x0; x < x1;) {
-	  m.setColor(x, y, c);
-	  y += dy;
-	  x++;
-	}
+  if (x0 > x1) {
+    std::swap(x0, x1);
+  }
+  float dy = static_cast<float>(yy) / static_cast<float>(std::abs(xx)),
+  y = y0;
+  for (float x = x0; x < x1;) {
+    m.setColor(x, y, c);
+    y += dy;
+    x++;
+  }
   } else {
-	if (y0 > y1) {
-	  std::swap(y0, y1);
-	}
-	float dx = static_cast<float>(xx) / static_cast<float>(std::abs(yy)),
-		x = x0;
-	for (float y = y0; y < y1;) {
-	  m.setColor(x, y, c);
-	  x += dx;
-	  y++;
-	}
+  if (y0 > y1) {
+    std::swap(y0, y1);
+  }
+  float dx = static_cast<float>(xx) / static_cast<float>(std::abs(yy)),
+  x = x0;
+  for (float y = y0; y < y1;) {
+    m.setColor(x, y, c);
+    x += dx;
+    y++;
+  }
   }
 }
 ```
@@ -142,7 +142,7 @@ obj 文件里的顶点坐标是 [-1,1] 的浮点数,而我需要转换成 [0,w) 
 
 渲染?的 4096x4096 的 png 图片足有 48MB, 有些三角形没有闭合,而且是倒着的(总之很多问题).我放一个 512x512 的
 
-[关联代码](https://github.com/iovw/tiny-renderer/tree/5f816afb50acbb77cf0c7249d830b70119c3d689) 
+[关联代码](https://github.com/iovw/tiny-renderer/tree/5f816afb50acbb77cf0c7249d830b70119c3d689)
 
 ![african-head-512x512](https://raw.githubusercontent.com/iovw/image-storage/master/images/african-head-512x512.webp)
 
