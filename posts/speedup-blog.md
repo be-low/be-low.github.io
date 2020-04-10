@@ -59,7 +59,7 @@ private async doTransform (ctx: PicGo): Promise<PicGo> {
 
 `cnpm i .\picgo-plugin-webp`
 
-```
+```log
 Error: [@.\picgo-plugin-webp\] resolved target C:\Users\i\.picgo\picgo-plugin-webp error: undefined
     at module.exports (C:\Users\i\scoop\persist\nodejs\bin\node_modules\cnpm\node_modules\npminstall\lib\download\local.js:30:11)
     at module.exports.throw (<anonymous>)
@@ -70,13 +70,13 @@ npminstall args: C:\Users\i\scoop\apps\nodejs\current\node.exe C:\Users\i\scoop\
 
 用 npm 后安装好了, 但是再次安装就是这个错误
 
-```
+```log
 npm ERR! Invalid package name "_@babel_code-frame@7.8.3@@babel": name cannot start with an underscore; name can only contain URL-friendly characters
 ```
 
 然后我用 yarn
 
-```
+```log
 success Saved lockfile.
 Done in 152.06s.
 ```
@@ -85,7 +85,7 @@ Done in 152.06s.
 
 然后 `picgo -v`
 
-```
+```log
 TypeError: require(...) is not a function
 ```
 
@@ -129,14 +129,14 @@ TypeError: require(...) is not a function
 
 local
 
-```
+```log
 ➜  Source (master) ✔ hugo version  
 Hugo Static Site Generator v0.68.0/extended linux/amd64 BuildDate: unknown
 ```
 
 remove
 
-```
+```log
 Preparing to unpack .../hugo_0.40.1-1_amd64.deb ...
 Unpacking hugo (0.40.1-1) ...
 Setting up hugo (0.40.1-1) ...
@@ -151,7 +151,7 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 
 hugo 还是太菜了，拓展性太差，所以我要回到 hexo 了。
 
-### 为什么我不再用 hugo?
+### 为什么我不再用 hugo
 
 优点：
 
@@ -161,7 +161,7 @@ hugo 还是太菜了，拓展性太差，所以我要回到 hexo 了。
 缺点：
 
 - 优点也成为缺点，由于是二进制包，所以拓展性差(我能想到的只有加载 dll?, 但是官方也没有说明)
-- 自定义pipeline, 我想要能够自定义每一个流程，每个过程都可替换，比如 markdown -> html 的过程, code block ->  `<span>...</span>` 的过程 
+- 自定义pipeline, 我想要能够自定义每一个流程，每个过程都可替换，比如 markdown -> html 的过程, code block ->  `<span>...</span>` 的过程
 
 所以我想回到 hexo 了，忘了之前不用 hexo 的原因。
 
@@ -171,7 +171,7 @@ Hexo migrate rss 好有问题啊， rss 里面的内容不完整，它就让让�
 
 但是随着对它的了解更深, 我觉得它不太符合我的要求.
 
-### 为什么我不再用 Gatsby ?
+### 为什么我不再用 Gatsby
 
 - 重型武器, `yarn install` 得跑好久
 - 载入(初次)太慢, 生产模式 build 出来的 JS bundle 挺大的, 而之所以有这么多 JS, 是因为生成的页面不是纯静态的 HTML, 而只是把所有数据打包成了 Json, 然后估计还有 React router 之类的库来处理路由.(太粗暴了)
@@ -179,5 +179,4 @@ Hexo migrate rss 好有问题啊， rss 里面的内容不完整，它就让让�
 
 然后优点也是有的,比如它使用 GraphQL, 就不只是为了查询个 Markdown 而设计的, 据说可以用于不同的数据源, 只要支持.
 
-待续... 
-
+待续...

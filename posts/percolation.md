@@ -3,7 +3,7 @@ date: 2019-10-05 09:34:07
 title: Percolation
 ---
 
-`isOpen` whether or not that space has been excavated(挖掘，变成空洞) 
+`isOpen` whether or not that space has been excavated(挖掘，变成空洞)
 
 `isFull` has water reached it from the top.
 
@@ -27,7 +27,7 @@ public class Percolation {
 
 #### 1. 使用 `WeightedQuickUnionUF`
 
-```
+```log
 30 1000 time:0.179
 30 2000 time:0.283
 300 10 time:1.708
@@ -36,7 +36,7 @@ public class Percolation {
 
 #### 2.  使用 `QuickFindUF`
 
-```
+```log
 30 1000 time:0.372
 30 2000 time:0.608
 300 10 time:13.59
@@ -45,7 +45,7 @@ public class Percolation {
 
 #### 4.  使用 `UF`
 
-```
+```log
 30 1000 time:0.178
 30 2000 time:0.248
 300 10 time:1.728
@@ -54,7 +54,7 @@ public class Percolation {
 
 #### 3.  使用我写的 Weighted QuickUnionUF with path compression
 
-```
+```log
 30 1000 time:0.173
 30 2000 time:0.252
 300 10 time:1.721
@@ -132,7 +132,7 @@ R(open) = \mathcal{O}(12\log{}count)
 $$
  再乘 $0.59count$ 次迭代 : $\mathcal{O}(7.08count\log{}count)$
 
-而 $count = N^2$ 所以算法的复杂度为 
+而 $count = N^2$ 所以算法的复杂度为
 $$
 \mathcal{O}(7.08N^2\log{}N^2)
 $$
@@ -159,7 +159,7 @@ $$
 \Omega(3.54N^4)
 $$
 
-```
+```log
 300 10 time:13.59
 600 10 time:218.983
 ```
@@ -182,9 +182,9 @@ $$
 
 我想了一下，`QuickFindUF` 之所以准确是因为在 union 的时候总是得遍历一遍，而 `Weighted QuickUnionUF` 之所以差了4-5倍，是因为 union 的时候，复杂度算的是树高度 ($\log{}N^2$)，但是节点不会总是在树的底部，所以只能以树高度来表示它的最坏情况，这样的话，小于10倍的误差我觉得是可以理解的。
 
-### 路径压缩为什么没有提高算法的性能？
+### 路径压缩为什么没有提高算法的性能
 
-路径压缩在第一次 find(x) 的时候与 `WeightedQuickUnionUF` 时间复杂度是一样的，只有在后面再 find(x) 的时候才会降低复杂度到 $\Omega(1)$ 
+路径压缩在第一次 find(x) 的时候与 `WeightedQuickUnionUF` 时间复杂度是一样的，只有在后面再 find(x) 的时候才会降低复杂度到 $\Omega(1)$
 
 ```java
 while (!percolation.percolates()) {

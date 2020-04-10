@@ -12,7 +12,7 @@ title: SICP Note
 
 ```scheme
 (define (add1 x y)
-	(+ x y))
+        (+ x y))
 ```
 
 如果求值 `(add1 (+ 1 2) (* 2 3))`
@@ -26,7 +26,7 @@ title: SICP Note
 
 如果是正则序：
 
-```
+```scheme
 (+ (+ 1 2) (* 2 3))
 (+ 3 6)
 9
@@ -40,7 +40,7 @@ title: SICP Note
    (+ x y)))
 ```
 
-```
+```scheme
 (define y 2)
 (fun (+ y 1))
 ```
@@ -110,8 +110,6 @@ h(n)&=A(2,n)\\
 &=2^{\frac n2}\\
 \end{align}
 $$
-
-
 
 ## ex 1.13
 

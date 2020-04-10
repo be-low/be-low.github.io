@@ -3,7 +3,7 @@ date: 2019-10-01 13:08:31
 title: Java Integer 的缓存机制
 ---
 
-做 cs61b 的 lab3 时碰到的，需要解释 
+做 cs61b 的 lab3 时碰到的，需要解释
 
 ```java
 public static boolean isSameNumber(Integer a, Integer b) {

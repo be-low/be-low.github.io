@@ -8,7 +8,7 @@ tags: ['linux']
 
 现在似乎不用 optimus-manager 也可以，如果直接安装 nvidia 和 gnome 的话，猜测是 gnome 对 xorg.conf 进行了配置？而且在 Wayland 下也能正常工作，但是需要安装整个 gnome group。
 
-记得上次没有装全，X11 一直启动失败，然后装了 `optimus-manager` 
+记得上次没有装全，X11 一直启动失败，然后装了 `optimus-manager`
 
  参考 `optimus-manager` 在 github 上的 wiki：
 

@@ -13,7 +13,7 @@ title: GalGame 美少女万华镜解包记录
 
 lennylxx 的 as-util.h 缺少了一些函数
 
-```
+```log
 'get_file_prefix': is not a member of 'as'
 'stringf': is not a member of 'as'
 'guess_file_extension': is not a member of 'as' //这怎么猜？
@@ -44,7 +44,7 @@ void close(const int&);
 
 然后函数都返回默认值，成功跑了起来,只是输出乱码。
 
-```
+```log
         game index = 0 -> JK�ƈ��s���t2�`�s���d�ԕҁ`
         game index = 1 -> Soul Link ULTIMATE
         game index = 2 -> JK�ƈ��s���t3�`�����������ҁ`
@@ -89,7 +89,7 @@ hz86 的 filepack, 然而我没有尝试这一个
 
 在 arc_unpacker 说明页面发现它是支持 qlie 的
 
-```
+```log
 qlie/pack: added automatic searching for game keys
 qlie/pack: improved .exe key retrieval
 ````
@@ -114,17 +114,17 @@ GARbro 的提取选项里只要不选保持原样都可以正常打开。
 
 3/5 更新：
 
-GARbro 提取的原始格式的 png 文件不能直接打开，用2/16进制编辑器打开后，头部有 
+GARbro 提取的原始格式的 png 文件不能直接打开，用2/16进制编辑器打开后，头部有
 
-```
-DPNG         �             X   0t         
+```hex
+DPNG         �             X   0t
 ......
-\x89PNG IHDR 
+\x89PNG IHDR
 ```
 
 打开正常的 png 文件，头部是
 
-```
+```hex
 \x89 P N G \x0d \x0a \x1a \x0a
 ```
 
@@ -169,7 +169,7 @@ if __name__ == "__main__":
 
 改成随机选好了。然而，随机选择的100个文件也是 0.19+ s，200个是大约0.5s
 
-```
+```log
 2020-03-05 16:08:33,649 - process 100 file time: 0.1718941
 2020-03-05 16:08:33,983 - process 200 file time: 0.34112460000000006
 2020-03-05 16:08:34,470 - process 300 file time: 0.48815339999999996
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
 8 workers 的线程池
 
-```
+```log
 2020-03-05 16:07:28,215 - process 100 file time: 0.004936099999999999
 2020-03-05 16:07:28,215 - process 200 file time: 0.00488559999999999
 2020-03-05 16:07:28,231 - process 300 file time: 0.0058112999999999915
@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
 传的参数不对，但已经是我尝试过N种错误的方法后了，然后就是 timeit 好像测不出来执行时间，
 
-```
+```python
 beg = time()
 executor.map(convert_file, in_files)
 duration = time() - beg
@@ -333,7 +333,7 @@ public override ImageData Read(IBinaryStream stream, ImageMetaData metaData)
             bitmap.WritePixels(rect, pixels, stride, x, y);
         }
     }
-    
+
     bitmap.Freeze();
     return new ImageData(bitmap, metaData);
 }
@@ -401,5 +401,5 @@ Links:
 - [GARbro](https://github.com/morkt/GARbro)
 - [Qlie visual story engine disassembly](https://sudonull.com/post/9841-Qlie-visual-story-engine-disassembly)
 - [Portable Network Graphics (PNG) Specification (Second Edition)](https://www.w3.org/TR/PNG)
-- [Portable Network Graphics ](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
-- [Dotnet Task Parallel Library ](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl?redirectedfrom=MSDN)
+- [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
+- [Dotnet Task Parallel Library](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl?redirectedfrom=MSDN)

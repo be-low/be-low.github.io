@@ -29,7 +29,7 @@ nmake
 
 装了 2017 后才正式开始解决问题。因为报错和上面一样的。(我想简写了，复现这个过程的代价也太高了)
 
-1. 我找到上面所说的那个文件 它的真实路径应该是 
+1. 我找到上面所说的那个文件 它的真实路径应该是
 
     > "C:\Program Files\Autodesk\FBX\FBX SDK\2019.2\lib\vs2017\x64\debug\libfbxsdk-md.lib"
 
@@ -39,7 +39,7 @@ nmake
 
     会发现缺少了 "vs2017" 和 “debug” 而它们的位置是由于空而留下这个 “\\\”
 
-2. 从 "CMakeLists.txt" 中发现它 `INCLUDE("../CMakeSettings.txt")` 进而跟踪到 
+2. 从 "CMakeLists.txt" 中发现它 `INCLUDE("../CMakeSettings.txt")` 进而跟踪到
 
     > "C:\Program Files\Autodesk\FBX\FBX SDK\2019.2\samples\CMakeSettings.txt"
 
@@ -97,7 +97,7 @@ nmake
     ```cmake
     SET(FBX_VARIANT "$(Configuration)")
     ```
-    
+
     我把 Configuration 打印出来的话什么都没有。于是改成了这样
 
     ```cmake
@@ -108,8 +108,5 @@ nmake
     ENDIF()
     ```
 
-    
-
 所以说，为什么 Autodesk 的一个 SDK bug 这么多。
 不过我直接卸 VS2019 的行为确实也没什么道理，要是发现了 log 的路径里多了两个 "\\" 的话，就能更快的解决问题了。
-

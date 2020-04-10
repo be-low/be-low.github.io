@@ -1,5 +1,5 @@
 ---
-date: 2019-08-28 09:08:31
+date: 2019-08-28 090831
 title: ISLR Note
 ---
 
@@ -23,7 +23,7 @@ $$
 
 对于预测，虽然不关注于可解释性，但是灵活度高的方法会有过拟合的问题，所以需要根据模型复杂度来判断。
 
-## Parametric Methods and Non-parametric Methods:
+## Parametric Methods and Non-parametric Methods
 
 对于预测 $Y = f(x_1,x_2,...,x_p)$
 

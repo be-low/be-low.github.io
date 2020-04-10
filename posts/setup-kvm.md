@@ -24,7 +24,6 @@ network 'default' is not active
 
 那么把他启动就行了
 
-
 ```shell
 sudo virsh net-start default
 ```
@@ -41,7 +40,7 @@ sudo virsh net-autostart default
 
 - 检测核心是否支持 `VIRTIO`
 
-```
+```shell
 zgrep VIRTIO /proc/config.gz
 ```
 
@@ -74,7 +73,7 @@ CONFIG_CRYPTO_DEV_VIRTIO=m
 
 - 检测核心模块 (kernel modules) 是否已加载
 
-```
+```shell
 lsmod | grep virtio
 ```
 
@@ -82,11 +81,11 @@ lsmod | grep virtio
 
 这样加载模块
 
-```
+```shell
 modprobe virtio
 ```
 
-自动加载，添加到 `/etc/modules-load.d/<module>.conf`, <module> 替换为模块的名字
+自动加载，添加到 `/etc/modules-load.d/<module>.conf`, `<module`> 替换为模块的名字
 
 例如:
 
@@ -102,7 +101,7 @@ virtio-balloon
 
 还有一个 `virtio-serial` 会这样
 
-```
+```shell
 modprobe: FATAL: Module virtio_serial not found in directory /lib/modules/4.19.75-1-lts
 ```
 
@@ -110,8 +109,7 @@ modprobe: FATAL: Module virtio_serial not found in directory /lib/modules/4.19.7
 
 检查 `kvm_intel` 是否支持 `nested`
 
-
-```
+```shell
 systool -m kvm_intel -v | grep nested
 ```
 
@@ -129,8 +127,8 @@ sudo modprobe kvm_intel
 
 - 使 kvm 组拥有 /dev/hugepages 的权限
 
-  （Now we need the right permissions to use this directory. The default 
-  permission is root's uid and gid with 0755, but we want anyone in the 
+  （Now we need the right permissions to use this directory. The default
+  permission is root's uid and gid with 0755, but we want anyone in the
   kvm group to have access to hugepages.）
 
   添加到你的 `/etc/fstab`
@@ -145,7 +143,6 @@ hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=78        0 0
 hugetlbfs       /dev/hugepages  hugetlbfs       mode=1770,gid=992        0 0
 ```
 
-
 - 然后重新挂载 `/dev/hugepages`
 
 ```shell
@@ -155,8 +152,7 @@ sudo mount /dev/hugepages
 
 ### 4.  使用`libvirt` 的图形化管理工具 `virt-manager`
 
-
-```
+```shell
 sudo pacman -S virt-manager
 ```
 
