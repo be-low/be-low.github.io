@@ -24,7 +24,6 @@ code {
     line-height: 1.2em;
 }
 
-image {
+img {
     max-width: 100%;
-    max-height: 100%;
 }

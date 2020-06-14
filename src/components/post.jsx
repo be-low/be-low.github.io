@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 const Article = styled('article')`
-  margin: 2em 1.5em;
+  margin: 2em 1em;
 `
 
 const H1 = styled('h1')`
@@ -13,15 +13,23 @@ const H2 = styled('h2')`
   text-align: center;
 `
 
-export default function Post ({ data }) {
+const style = {
+  blogPostContainer: {},
+  blogPost: {},
+  blogPostContent: {},
+}
+
+export default function Post({ data }) {
   const { frontmatter, html } = data.markdownRemark
+  const { title, date } = frontmatter
+  const { blogPostContainer, blogPost, blogPostContent } = style
   return (
-    <Article className="blog-post-container">
-      <div className="blog-post">
-        <H1>{frontmatter.title}</H1>
-        <H2>{frontmatter.date}</H2>
+    <Article className={blogPost}>
+      <div className={blogPostContainer}>
+        <H1>{title}</H1>
+        <H2>{date}</H2>
         <div
-          className="blog-post-content"
+          className={blogPostContent}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
