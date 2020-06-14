@@ -28,8 +28,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/posts`
+        path: `${__dirname}/content/posts`
       }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./content/friends/`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,

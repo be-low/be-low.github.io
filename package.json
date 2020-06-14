@@ -8,6 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "dev": "yarn develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -28,6 +29,7 @@
     "gatsby-remark-katex": "^3.2.0",
     "gatsby-remark-prismjs": "^3.4.0",
     "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-json": "^2.4.5",
     "gatsby-transformer-remark": "^2.7.0",
     "katex": "^0.11.1",
     "prismjs": "^1.19.0",

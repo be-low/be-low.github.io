@@ -13,7 +13,7 @@ const Main = styled('main')`
 `
 
 export default function PostsPage () {
-  const data = useStaticQuery(graphql`
+  const posts = useStaticQuery(graphql`
       query AllPostsQuery {
           allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
               totalCount
@@ -23,15 +23,14 @@ export default function PostsPage () {
               }
           }
       }
-  `)
-  const { nodes } = data.allMarkdownRemark
+  `).allMarkdownRemark.nodes
 
   return (
     <Wrapper>
       <SEO title="Posts"/>
       <Main>
         <h1>Posts</h1>
-        {nodes.map(i => <PostLink key={i.id} post={i}/>)}
+        {posts.map(i => <PostLink key={i.id} post={i}/>)}
       </Main>
     </Wrapper>
   )
