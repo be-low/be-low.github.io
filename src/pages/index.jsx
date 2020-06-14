@@ -32,11 +32,12 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Title>Welcome to Billow's World</Title>
     <Wrapper>
-      <NavLink to={'/start'}>Start</NavLink>
-      <NavLink to={'/posts'}>Load</NavLink>
-      <NavLink to={'/contact'}>Option</NavLink>
-      <NavLink to={'/about-me'}>Help</NavLink>
-      <NavLink to={'/friends'}>Support</NavLink>
+      {/* <NavLink to={'/start'}>Start</NavLink> */}
+      {/* <NavLink to={'/posts'}>Load</NavLink> */}
+      <NavLink to={'/posts'}>Posts</NavLink>
+      {/* <NavLink to={'/contact'}>Option</NavLink> */}
+      <NavLink to={'/about-me'}>About</NavLink>
+      <NavLink to={'/friends'}>Friends</NavLink>
     </Wrapper>
   </Main>
 )
