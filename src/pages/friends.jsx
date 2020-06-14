@@ -6,14 +6,15 @@ import { graphql, useStaticQuery } from 'gatsby'
 const style = {
     friendLink: {
         display: 'flex',
-        margin: '20px 0'
+        margin: '20px 0',
+        height: 100
     },
     avatar: {
         width: '100px'
     },
     meta: {
         margin: '0 20px',
-        flex: '1 0 200px'
+        flex: '1 1 0'
     }
 }
 
