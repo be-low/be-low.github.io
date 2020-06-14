@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import "katex/dist/katex.min.css"
+import "./post.css"
 
 const Article = styled('article')`
   margin: 2em 1em;
