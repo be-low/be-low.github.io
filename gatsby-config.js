@@ -16,7 +16,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `billow's world`,
-        short_name: `bww`,
+        short_name: `bw`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
