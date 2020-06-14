@@ -80,7 +80,7 @@ title: 前端方向的面试经历2
 
 4. CSS 垂直水平居中
 
-    答：水平居中可以用 `margin: 0 auto;` 我一般用 Flex box 或者 Grid，（还知道别的方式吗？）不知...
+    答：水平居中可以用 `margin: 0 auto;`, 锤子的话我一般用 Flex Box 或者 Grid，（还知道别的方式吗？）不知...
 
     ---
 
@@ -101,3 +101,11 @@ title: 前端方向的面试经历2
     ![imagescompatible-transform.webp](https://raw.githubusercontent.com/imbillow/image-storage/master/imagescompatible-transform.webp)
 
 5. 数据结构 堆
+
+    答：只记得堆是压扁的树（仅存的印象），其它的就不知了。（然后又问了啥链表、数组、栈、队列）
+
+    ---
+
+    实际上堆只是父节点比子节点小（或大）的树而已，我之所以有压扁的印象是因为cpp的堆是用数组实现的（也没有了解太多，只对那张图有点印象）。
+    它也有别的名字，比如优先队列？或者说一般优先队列都是用的堆来实现的。
+    优先队列和普通的先进先出有点不同就是，每个元素都有个优先级，优先级高（或低）的可以直接插队到前面。
