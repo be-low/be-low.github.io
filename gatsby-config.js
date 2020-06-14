@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-offline`,
     'gatsby-plugin-catch-links',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
@@ -23,6 +22,18 @@ module.exports = {
         display: `standalone`,
         icon: `assets/icons/icon-512.webp` // This path is relative to the root of the site.
       }
+    },
+    /**
+     * If you’re using this plugin with gatsby-plugin-manifest (recommended)
+     * this plugin should be listed after that plugin so the manifest file
+     * can be included in the service worker.
+     */
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: ['/posts', `/about-me/`, `/friends`],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -42,12 +53,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          // {
-          //   resolve: `gatsby-remark-katex`,
-          //   options: {
-          //     strict: `ignore`
-          //   }
-          // },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`
+            }
+          },
           'gatsby-remark-prismjs'
         ],
       },

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import "katex/dist/katex.min.css"
 
 const Article = styled('article')`
   margin: 2em 1em;
@@ -24,12 +25,12 @@ export default function Post({ data }) {
   const { title, date } = frontmatter
   const { blogPostContainer, blogPost, blogPostContent } = style
   return (
-    <Article className={blogPost}>
-      <div className={blogPostContainer}>
+    <Article style={blogPost}>
+      <div style={blogPostContainer}>
         <H1>{title}</H1>
         <H2>{date}</H2>
         <div
-          className={blogPostContent}
+          style={blogPostContent}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>

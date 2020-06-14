@@ -74,9 +74,8 @@ public Integer(int value) {
 $$
 Integer.valueOf(x) == Integer.valueOf(x) =\\
 \begin{cases}
-true, &\text{if } -128 \leq x \leq high\\
-false,&\text{if } x \leq -128 \text{ or } x \geq high\\
-\notag
+    true, &\text{if } -128 \leq x \leq high\\
+    false,&\text{if } x \leq -128 \text{ or } x \geq high\\
 \end{cases}
 $$
 

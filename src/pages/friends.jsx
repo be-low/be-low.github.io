@@ -40,7 +40,7 @@ export default function FriendsPage() {
                 {
                     friends.map(f =>
                         <div style={style.friendLink} key={f.id}>
-                            <img style={style.avatar} src={f.avatarUrl} alt="avatar" />
+                            <img style={style.avatar} src={f.avatarUrl} alt={`Avatar of ${f.name}`} />
                             <a href={f.link}>
                                 <div style={style.meta}>
                                     <h4 style={style.friendName}>{f.name}</h4>

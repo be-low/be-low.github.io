@@ -84,31 +84,31 @@ title: SICP Note
 
 $$
 A(x,y)=\begin{cases}
-0,y=0\\
-2y,x=0\\
-A(x-1,A(x,y-1)),else
+  0,y=0\\
+  2y,x=0\\
+  A(x-1,A(x,y-1)),else
 \end{cases}
 $$
 
 $$
-\begin{align}
-f(n)&=A(0,n)\\
-&=2n\\
-g(n)&=A(1,n)\\
-&=A(0,A(1,n-1))\\
-&=2A(1,n-1)\\
-&=2A(0,A(1,n-2))\\
-&=2^2A(1,n-2)\\
-&...\\
-&=2^{n-1}A(0,1)\\
-&=2^n\\
-h(n)&=A(2,n)\\
-&=A(1,A(x,n-1))\\
-&=A(0,A(x,n-2))\\
-&=2A(x,n-2)\\
-&...\\
-&=2^{\frac n2}\\
-\end{align}
+\begin{aligned}
+  f(n)&=A(0,n)\\
+      &=2n\\
+  g(n)&=A(1,n)\\
+      &=A(0,A(1,n-1))\\
+      &=2A(1,n-1)\\
+      &=2A(0,A(1,n-2))\\
+      &=2^2A(1,n-2)\\
+      &...\\
+      &=2^{n-1}A(0,1)\\
+      &=2^n\\
+  h(n)&=A(2,n)\\
+      &=A(1,A(x,n-1))\\
+      &=A(0,A(x,n-2))\\
+      &=2A(x,n-2)\\
+      &...\\
+      &=2^{\frac n2}\\
+\end{aligned}
 $$
 
 ## ex 1.13
@@ -116,9 +116,9 @@ $$
 证明 $Fib(n)$ 是最接近 $\frac {\phi^n} {\sqrt 5}$ 的整数，其中 $\phi=\frac{1+\sqrt 5}2$
 $$
 Fib(n)=\begin{cases}
-0 &\text{if }n=0\\
-1 &\text{if }n=1\\
-Fib(n-1)+Fib(n-2) &\text{else}
+  0 &\text{if }n=0\\
+  1 &\text{if }n=1\\
+  Fib(n-1)+Fib(n-2) &\text{else}
 \end{cases}
 $$
 
