@@ -30,7 +30,7 @@ const NavLink = styled(Link)`
 const IndexPage = () => (
   <Main>
     <SEO title="Home" />
-    <Title>Welcome to Billow's World</Title>
+    <Title>Billow's World</Title>
     <Wrapper>
       {/* <NavLink to={'/start'}>Start</NavLink> */}
       {/* <NavLink to={'/posts'}>Load</NavLink> */}
