@@ -1,10 +1,11 @@
+import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import PostLink from '../components/post-link'
 import styled from 'styled-components'
 
-const Wrapper = styled('div')`
+const Wrapper = styled(Layout)`
   display: grid;
   grid-template-columns: repeat(6,1fr);
 `

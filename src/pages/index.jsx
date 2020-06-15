@@ -28,18 +28,20 @@ const NavLink = styled(Link)`
 `
 
 const IndexPage = () => (
-  <Main>
-    <SEO title="Home" />
-    <Title>Billow's World</Title>
-    <Wrapper>
-      {/* <NavLink to={'/start'}>Start</NavLink> */}
-      {/* <NavLink to={'/posts'}>Load</NavLink> */}
-      <NavLink to={'/posts'}>Posts</NavLink>
-      {/* <NavLink to={'/contact'}>Option</NavLink> */}
-      <NavLink to={'/about-me'}>About</NavLink>
-      <NavLink to={'/friends'}>Friends</NavLink>
-    </Wrapper>
-  </Main>
+  <>
+    <Main>
+      <SEO title="Home" />
+      <Title>Billow's World</Title>
+      <Wrapper>
+        {/* <NavLink to={'/start'}>Start</NavLink> */}
+        {/* <NavLink to={'/posts'}>Load</NavLink> */}
+        <NavLink to={'/posts'}>Posts</NavLink>
+        {/* <NavLink to={'/contact'}>Option</NavLink> */}
+        <NavLink to={'/about-me'}>About</NavLink>
+        <NavLink to={'/friends'}>Friends</NavLink>
+      </Wrapper>
+    </Main>
+  </>
 )
 
 export default IndexPage
