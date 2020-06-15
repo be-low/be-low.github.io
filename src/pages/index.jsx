@@ -6,14 +6,14 @@ import styled from 'styled-components'
 const Main = styled('main')`
   margin-top: 120px;
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
 `
 const Title = styled('h1')`
   grid-column: 2/6;
   text-align: center;
   grid-column-gap: 1fr;
   height: 100px;
-  color: #00AAC2;
+  color: #00aac2;
   margin: 0;
 `
 const Wrapper = styled.div`

@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import "katex/dist/katex.min.css"
-import "./post.css"
+import 'katex/dist/katex.min.css'
+import './post.css'
 
 const Article = styled('article')`
   margin: 2em 1em;
@@ -13,13 +13,13 @@ const H1 = styled('h1')`
 `
 const H2 = styled('h2')`
   text-align: center;
-  font-weight: lighter
+  font-weight: lighter;
 `
 
 const style = {
   blogPostContainer: {},
   blogPost: {},
-  blogPostContent: {},
+  blogPostContent: {}
 }
 
 export default function Post({ data }) {
@@ -41,10 +41,10 @@ export default function Post({ data }) {
 }
 
 export const pageQuery = graphql`
-    query($id: String!) {
-        markdownRemark(id: { eq: $id }) {
-            ...Post
-            html
-        }
+  query($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      ...Post
+      html
     }
+  }
 `

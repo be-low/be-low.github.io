@@ -114,6 +114,7 @@ $$
 ## ex 1.13
 
 证明 $Fib(n)$ 是最接近 $\frac {\phi^n} {\sqrt 5}$ 的整数，其中 $\phi=\frac{1+\sqrt 5}2$
+
 $$
 Fib(n)=\begin{cases}
   0 &\text{if }n=0\\

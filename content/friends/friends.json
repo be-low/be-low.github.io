@@ -1,32 +1,32 @@
 [
-    {
-        "name": "Ray Eldath",
-        "avatarUrl": "https://ray-eldath.me/img/avatar.jpg",
-        "link": "https://ray-eldath.me",
-        "bio": "一只小黑猫"
-    },
-    {
-        "name": "df 聚聚",
-        "avatarUrl": "https://avatars2.githubusercontent.com/u/15088572?s=460&u=74f29803b0dd4cc997799b92ce9726e00e2a6162&v=4",
-        "link": "https://dark-flames.com",
-        "bio": "Developer / 业余摄影 / 胶片爱好者"
-    },
-    {
-        "name": "lemonneko",
-        "avatarUrl": "https://blog.lemonneko.moe/images/avatar.JPG",
-        "link": "https://blog.lemonneko.moe",
-        "bio": "一只吃柠檬糖的猫"
-    },
-    {
-        "name": "Schrodinger Zhu",
-        "avatarUrl": "https://avatars1.githubusercontent.com/u/20108837?s=460&u=05cfed0a160e030d93c2656f77b1f677c63f7a36&v=4",
-        "link": "https://zhuyi.fan",
-        "bio": "PLT/Math/GPG 6552 350D 8D7E E5FB"
-    },
-    {
-        "name": "latyas",
-        "avatarUrl": "https://avatars2.githubusercontent.com/u/1551736?s=460&u=00d567a581d0c0db1e245f85e931667d43283206&v=4",
-        "link": "https://yangjie.li",
-        "bio": ""
-    }
+  {
+    "name": "Ray Eldath",
+    "avatarUrl": "https://ray-eldath.me/img/avatar.jpg",
+    "link": "https://ray-eldath.me",
+    "bio": "一只小黑猫"
+  },
+  {
+    "name": "df 聚聚",
+    "avatarUrl": "https://avatars2.githubusercontent.com/u/15088572?s=460&u=74f29803b0dd4cc997799b92ce9726e00e2a6162&v=4",
+    "link": "https://dark-flames.com",
+    "bio": "Developer / 业余摄影 / 胶片爱好者"
+  },
+  {
+    "name": "lemonneko",
+    "avatarUrl": "https://blog.lemonneko.moe/images/avatar.JPG",
+    "link": "https://blog.lemonneko.moe",
+    "bio": "一只吃柠檬糖的猫"
+  },
+  {
+    "name": "Schrodinger Zhu",
+    "avatarUrl": "https://avatars1.githubusercontent.com/u/20108837?s=460&u=05cfed0a160e030d93c2656f77b1f677c63f7a36&v=4",
+    "link": "https://zhuyi.fan",
+    "bio": "PLT/Math/GPG 6552 350D 8D7E E5FB"
+  },
+  {
+    "name": "latyas",
+    "avatarUrl": "https://avatars2.githubusercontent.com/u/1551736?s=460&u=00d567a581d0c0db1e245f85e931667d43283206&v=4",
+    "link": "https://yangjie.li",
+    "bio": ""
+  }
 ]

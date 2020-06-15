@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: ['/posts', `/about-me/`, `/friends`],
-      },
+        precachePages: ['/posts', `/about-me/`, `/friends`]
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -46,8 +46,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./content/friends/`,
-      },
+        path: `./content/friends/`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -60,8 +60,8 @@ module.exports = {
             }
           },
           'gatsby-remark-prismjs'
-        ],
-      },
-    },
+        ]
+      }
+    }
   ]
 }

@@ -73,7 +73,7 @@ exec --no-startup-id xrandr --output eDP-1-1 --auto --left-of HDMI-0
 
 GUI 前端可以用 `arandr`
 
-在插入VGA时自动启动 `arandr`， 参考 [wiki-udev](https://wiki.archlinux.org/index.php/Udev#Execute_on_VGA_cable_plug_in)
+在插入 VGA 时自动启动 `arandr`， 参考 [wiki-udev](https://wiki.archlinux.org/index.php/Udev#Execute_on_VGA_cable_plug_in)
 
 `/etc/udev/rules.d/95-monitor-hotplug.rules`
 

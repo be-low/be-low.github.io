@@ -4,9 +4,9 @@ date: 2020-03-21T15:41:32+08:00
 draft: true
 ---
 
-最近逛了[Nova的blog](https://nova.moe), 被这个速度惊呆了! 相比之下,我这博客就有点蜗牛的感觉. 而且图片的路径还是错的? 所以我想要优化我博客的速度, 但是我想,我得先把图片的问题解决掉.
+最近逛了[Nova 的 blog](https://nova.moe), 被这个速度惊呆了! 相比之下,我这博客就有点蜗牛的感觉. 而且图片的路径还是错的? 所以我想要优化我博客的速度, 但是我想,我得先把图片的问题解决掉.
 
-图片在我本地是可以正常显示的,但是传到 github 上之后, 相对路径(../assert/image/*)让它们都显示不出来. 我首先是想到用图床,但是免费的图床都各有各的限制, 比如 10M 以下,一年 120 次上传, imgur 甚至要验证手机号码?但我还是想白嫖,于是找到了 [PicGo](https://github.com/PicGo/PicGo-Core), 看起来还不错, 但它不能自动进行 webp 转换, 所以我就写一个 webp 转换插件好了.
+图片在我本地是可以正常显示的,但是传到 github 上之后, 相对路径(../assert/image/\*)让它们都显示不出来. 我首先是想到用图床,但是免费的图床都各有各的限制, 比如 10M 以下,一年 120 次上传, imgur 甚至要验证手机号码?但我还是想白嫖,于是找到了 [PicGo](https://github.com/PicGo/PicGo-Core), 看起来还不错, 但它不能自动进行 webp 转换, 所以我就写一个 webp 转换插件好了.
 
 文档翻了几遍,基本上还是不懂, 看了它的源代码才大致懂了.
 
@@ -33,7 +33,7 @@ private async doTransform (ctx: PicGo): Promise<PicGo> {
 
 所以我把 `path` 这个默认 transformer 改改就完成了?感觉太快了.
 
-果然没这么简单, 第一次update 我以为成功了,因为上传的文件确实是 webp 后缀. 但是其实是 `picgo u *.webp`
+果然没这么简单, 第一次 update 我以为成功了,因为上传的文件确实是 webp 后缀. 但是其实是 `picgo u *.webp`
 
 再次上传一个 .png 就是原样上传了. 设置的 transfomer 像是没有作用, --debug 也没给出更多的信息. 只好把代码拉下来调试, 看看哪里出了问题.
 
@@ -95,7 +95,7 @@ TypeError: require(...) is not a function
 
 好像可以了,上传的拓展名没有变成 `webp` ,但是大小小得多. 应该是转成了 `webp` 编码.
 
-之前得错误主要还是对 export 没搞懂, 我一直以为 export default 就可以了, 实在没见过 export  = () => {} 这种
+之前得错误主要还是对 export 没搞懂, 我一直以为 export default 就可以了, 实在没见过 export = () => {} 这种
 
 我还发现把一个 100+ KB 的 jpg 图片转换成 webp 后, 大小变成了 900KB, 我是懵逼的.应该做个配置文件, 让它有可选的目标格式.
 
@@ -103,7 +103,7 @@ TypeError: require(...) is not a function
 
 > 3.21
 
-现在我转到 hugo 了, 果然速度很快-指 build 整个静态站点. 样式都删掉了, 图片专门建了一个 [GitHub 的 repo](https://github.com/iovw/image-storage) 来存, 用 picgo 和 typora 自动上传. 用 google 的 Speed Insight  分析有 100 分 (此处应有\滑稽
+现在我转到 hugo 了, 果然速度很快-指 build 整个静态站点. 样式都删掉了, 图片专门建了一个 [GitHub 的 repo](https://github.com/iovw/image-storage) 来存, 用 picgo 和 typora 自动上传. 用 google 的 Speed Insight 分析有 100 分 (此处应有\滑稽
 
 ![image-20200321170258934](https://raw.githubusercontent.com/iovw/image-storage/master/images/image-20200321170258934.webp)
 
@@ -130,7 +130,7 @@ TypeError: require(...) is not a function
 local
 
 ```log
-➜  Source (master) ✔ hugo version  
+➜  Source (master) ✔ hugo version
 Hugo Static Site Generator v0.68.0/extended linux/amd64 BuildDate: unknown
 ```
 
@@ -161,7 +161,7 @@ hugo 还是太菜了，拓展性太差，所以我要回到 hexo 了。
 缺点：
 
 - 优点也成为缺点，由于是二进制包，所以拓展性差(我能想到的只有加载 dll?, 但是官方也没有说明)
-- 自定义pipeline, 我想要能够自定义每一个流程，每个过程都可替换，比如 markdown -> html 的过程, code block ->  `<span>...</span>` 的过程
+- 自定义 pipeline, 我想要能够自定义每一个流程，每个过程都可替换，比如 markdown -> html 的过程, code block -> `<span>...</span>` 的过程
 
 所以我想回到 hexo 了，忘了之前不用 hexo 的原因。
 

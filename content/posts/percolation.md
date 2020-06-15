@@ -34,7 +34,7 @@ public class Percolation {
 600 10 time:32.378
 ```
 
-#### 2.  使用 `QuickFindUF`
+#### 2. 使用 `QuickFindUF`
 
 ```log
 30 1000 time:0.372
@@ -43,7 +43,7 @@ public class Percolation {
 600 10 time:218.983
 ```
 
-#### 4.  使用 `UF`
+#### 4. 使用 `UF`
 
 ```log
 30 1000 time:0.178
@@ -52,7 +52,7 @@ public class Percolation {
 600 10 time:32.496
 ```
 
-#### 3.  使用我写的 Weighted QuickUnionUF with path compression
+#### 3. 使用我写的 Weighted QuickUnionUF with path compression
 
 ```log
 30 1000 time:0.173
@@ -126,18 +126,23 @@ find 的时间复杂度 $\leq$ 于树的高度，其他都为常量时间。
 $$
 R(union) = \mathcal{O}(2\log{}count)\\
 $$
-而 `open` 最多会调用6次 union
+
+而 `open` 最多会调用 6 次 union
+
 $$
 R(open) = \mathcal{O}(12\log{}count)
 $$
- 再乘 $0.59count$ 次迭代 : $\mathcal{O}(7.08count\log{}count)$
+
+再乘 $0.59count$ 次迭代 : $\mathcal{O}(7.08count\log{}count)$
 
 而 $count = N^2$ 所以算法的复杂度为
+
 $$
 \mathcal{O}(7.08N^2\log{}N^2)
 $$
 
 代入上面的数据看一下
+
 $$
 \mathcal{O}(7.08N^2\log{}N^2)(N=300)=0.17\\
 \mathcal{O}(7.08N^2\log{}N^2)(N=600)=3.2
@@ -154,7 +159,8 @@ $$
 
 #### 对于`QuickFindUF`
 
-而对于 `QuickFindUF` ,它的树的高度总是2，但是 union 需要遍历所以节点，所以是
+而对于 `QuickFindUF` ,它的树的高度总是 2，但是 union 需要遍历所以节点，所以是
+
 $$
 \Omega(3.54N^4)
 $$
@@ -180,7 +186,7 @@ $$
 
 这个还挺准确的
 
-我想了一下，`QuickFindUF` 之所以准确是因为在 union 的时候总是得遍历一遍，而 `Weighted QuickUnionUF` 之所以差了4-5倍，是因为 union 的时候，复杂度算的是树高度 ($\log{}N^2$)，但是节点不会总是在树的底部，所以只能以树高度来表示它的最坏情况，这样的话，小于10倍的误差我觉得是可以理解的。
+我想了一下，`QuickFindUF` 之所以准确是因为在 union 的时候总是得遍历一遍，而 `Weighted QuickUnionUF` 之所以差了 4-5 倍，是因为 union 的时候，复杂度算的是树高度 ($\log{}N^2$)，但是节点不会总是在树的底部，所以只能以树高度来表示它的最坏情况，这样的话，小于 10 倍的误差我觉得是可以理解的。
 
 ### 路径压缩为什么没有提高算法的性能
 

@@ -5,11 +5,11 @@ title: Graphic's Magic
 
 ## Computer Graphics' s Magic
 
- 本来还有计算机网络和机器视觉的一些事情要做，但是我很抗拒，游戏也不好玩了（或者没什么心情玩），所以来学习计算机图形学的魔法？（其实是填一个坑）
+本来还有计算机网络和机器视觉的一些事情要做，但是我很抗拒，游戏也不好玩了（或者没什么心情玩），所以来学习计算机图形学的魔法？（其实是填一个坑）
 
 我的魔法之路就决定从[这里](https://github.com/ssloy/tinyrenderer/wiki/Lesson-0-getting-started)开始了。
 
-一个小问题，生成的 tga 格式的图片，kde的默认图片查看器根本不支持，Clion 里也打不开，不过可以用 gimp 打开（虽然怪怪的）。
+一个小问题，生成的 tga 格式的图片，kde 的默认图片查看器根本不支持，Clion 里也打不开，不过可以用 gimp 打开（虽然怪怪的）。
 
 ### 第一步，画直线
 
@@ -21,7 +21,7 @@ title: Graphic's Magic
 
 说实话，在浏览器里看这种 txt 文档，体验极差，而且 firefox 的阅读模式也不能开。所以其实更推荐用 `man libpng` 的方式，在终端模拟器里看。
 
-这文档也太长了吧，懒得看了()。咱明明只是想知道怎么 new 一个 X*Y 大小的画布，然后知道怎么在 (x,y) 点设置某个颜色值，然后怎么保存它为一个 png 格式的文件而已啊。不知道怎么搜索到了 `Beyond Linux® From Scratch (System V Edition)` 想起来这也是我以前挖的大坑。不对，以前那个是 LFS 这是 BLFS，嗯，更大的坑。大意就是教你怎么构建自己的 linux 发行版，完全自定义的 linux。不过也不能完全随心所欲，因为软件之间总有各种依赖，感觉是很麻烦的事情。
+这文档也太长了吧，懒得看了()。咱明明只是想知道怎么 new 一个 X\*Y 大小的画布，然后知道怎么在 (x,y) 点设置某个颜色值，然后怎么保存它为一个 png 格式的文件而已啊。不知道怎么搜索到了 `Beyond Linux® From Scratch (System V Edition)` 想起来这也是我以前挖的大坑。不对，以前那个是 LFS 这是 BLFS，嗯，更大的坑。大意就是教你怎么构建自己的 linux 发行版，完全自定义的 linux。不过也不能完全随心所欲，因为软件之间总有各种依赖，感觉是很麻烦的事情。
 
 又忘了 cmake 是怎么链接没有提供 `.cmake` 文件的库了，不过至少记得是用的 `.pc`。比上次更快的找到了方法。咱需要先 `find_package(PkgConfig)` 然后用 `pkg_check_modules()` 或者 `pkg_search_module`。像这样：
 
@@ -119,7 +119,7 @@ void line(int32_t x0, int32_t y0, int32_t x1, int32_t y1, Mat &m, const RGB &c) 
 
 第二次写着已经之前的语气了,只有从记忆里掏出来的一些干巴巴的文字.
 
-用所给的 `model.h` `model.cpp` 渲染人头时,有点小问题, `msvc` 总是报错 `vector` 访问越界, 但由于对 VS 的不熟悉导致浪费了不少的时间. 用 `msvc`  写 C++ 时, 应该经常会遇到这种断言失败的异常, 但我觉得其实它能帮你提早发现代码的 bug, 而且 debug 也很简单(怎么我之前没发现). 它这里说明得很清楚
+用所给的 `model.h` `model.cpp` 渲染人头时,有点小问题, `msvc` 总是报错 `vector` 访问越界, 但由于对 VS 的不熟悉导致浪费了不少的时间. 用 `msvc` 写 C++ 时, 应该经常会遇到这种断言失败的异常, 但我觉得其实它能帮你提早发现代码的 bug, 而且 debug 也很简单(怎么我之前没发现). 它这里说明得很清楚
 
 > Press Retry to debug the application
 
@@ -154,7 +154,7 @@ obj 文件里的顶点坐标是 [-1,1] 的浮点数,而我需要转换成 [0,w) 
 
 把 `Line()` 改成了印象中 ssloy 的样子,一样的 steep, 但是 steep 有处写错了,发了不少时间才发现. @[Repo](https://github.com/iovw/tiny-renderer/tree/f8c0d4863745883e05398b3dfb60b15e918134d2)
 
- 正确的人头:
+正确的人头:
 
 ![true head](https://raw.githubusercontent.com/iovw/image-storage/master/images/african-head-1024-true.webp)
 

@@ -10,15 +10,15 @@ tags: ['linux']
 
 记得上次没有装全，X11 一直启动失败，然后装了 `optimus-manager`
 
- 参考 `optimus-manager` 在 github 上的 wiki：
+参考 `optimus-manager` 在 github 上的 wiki：
 
-- 改成  Xorg 模式， 因为据说 Wayland 不支持？
+- 改成 Xorg 模式， 因为据说 Wayland 不支持？
 
 - 把 gdm 换成一个打了补丁的 `gdm-prime` Aur 包， 才得以正常使用 gnome (真是麻烦啊…
 
 ## 起因
 
- marjaro deepin 崩了
+marjaro deepin 崩了
 
 因为 `optimus-manager` 这个工具让我对驱动显卡有了信心所以就换成了 archlinux
 
@@ -61,7 +61,7 @@ yay --save --aururl "https://aur.tuna.tsinghua.edu.cn" optimus-manager
 
 --save 参数可以把镜像的配置保存下来，以后就会默认使用镜像了。
 
-yay如果在用镜像的同时使用了全局代理的话，会出现奇怪的网络问题，把代理暂时关掉就好了。
+yay 如果在用镜像的同时使用了全局代理的话，会出现奇怪的网络问题，把代理暂时关掉就好了。
 
 然后开启 `optimus-manager` 的服务
 

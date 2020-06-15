@@ -121,7 +121,7 @@ sudo modprobe -r kvm_intel
 sudo modprobe kvm_intel
 ```
 
-### 3.  使用 huge pages 改善性能
+### 3. 使用 huge pages 改善性能
 
 看了下，最新版的 Arch 是会自动开启的，检查是否有`/dev/hugepages` 这个目录。如果没有的话，需要手动创建并：
 
@@ -150,7 +150,7 @@ sudo umount /dev/hugepages
 sudo mount /dev/hugepages
 ```
 
-### 4.  使用`libvirt` 的图形化管理工具 `virt-manager`
+### 4. 使用`libvirt` 的图形化管理工具 `virt-manager`
 
 ```shell
 sudo pacman -S virt-manager
