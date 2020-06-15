@@ -16,7 +16,7 @@ const Main = styled('main')`
 export default function PostsPage() {
   const posts = useStaticQuery(graphql`
     query AllPostsQuery {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      allMarkdownRemark(filter: {frontmatter: {title: {ne: ""}, date: {ne: null}}}, sort: { fields: frontmatter___date, order: DESC }) {
         totalCount
         nodes {
           ...Post
