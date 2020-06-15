@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [13.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -35,10 +35,9 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - run: |
-        yarn install
-        yarn build
-        
+    - run: yarn install
+    - run: yarn build
+
     - name: Publish to gh-page
       uses: crazy-max/ghaction-github-pages@v1.3.0
       with:
