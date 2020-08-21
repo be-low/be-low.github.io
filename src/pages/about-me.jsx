@@ -21,8 +21,10 @@ export default function AboutMePage() {
         <h2>Find Me</h2>
         <p>Email: ???</p>
         <p className="media">
-          <a href="https://github.com/imbillow">GitHub</a>
-          <a href="https://steamcommunity.com/id/__billow__/">Steam</a>
+          GitHub: <a href="https://github.com/imbillow">@billow</a>
+        </p>
+        <p>
+          Steam: <a href="https://steamcommunity.com/id/__billow__/">@billow</a>
         </p>
       </div>
     </Layout>

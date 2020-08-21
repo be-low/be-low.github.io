@@ -62,6 +62,12 @@ module.exports = {
           'gatsby-remark-prismjs'
         ]
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-3961107718814484`
+      },
+    },
   ]
 }

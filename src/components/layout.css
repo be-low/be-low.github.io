@@ -13,6 +13,10 @@ a, a:visited {
     text-decoration: none;
 }
 
+a:hover {
+    background-color: #444955;
+}
+
 pre {
     background: #31363f;
     overflow-x: auto;

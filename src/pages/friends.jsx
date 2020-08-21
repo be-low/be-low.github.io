@@ -13,8 +13,8 @@ const style = {
     width: '100px'
   },
   meta: {
-    margin: '0 20px',
-    flex: '1 1 0'
+    padding: '0 20px',
+    flex: '1 0 0'
   }
 }
 
@@ -45,11 +45,9 @@ export default function FriendsPage() {
               src={f.avatarUrl}
               alt={`Avatar of ${f.name}`}
             />
-            <a href={f.link}>
-              <div style={style.meta}>
-                <h4 style={style.friendName}>{f.name}</h4>
-                <p style={style.friendBio}>{f.bio}</p>
-              </div>
+            <a style={style.meta} href={f.link}>
+              <h4 style={style.friendName}>{f.name}</h4>
+              <p style={style.friendBio}>{f.bio}</p>
             </a>
           </div>
         ))}
